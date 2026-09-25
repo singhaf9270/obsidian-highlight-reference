@@ -1,5 +1,4 @@
-# obsidian-highlight-reference
-An Obsidian plugin that shows meanings for highlighted words using a glossary note referenced in the note's frontmatter.
+```markdown
 # Highlight Reference
 
 > Show dictionary meanings on hover over `==highlighted==` words in Obsidian.
@@ -38,7 +37,7 @@ An Obsidian plugin that shows meanings for highlighted words using a glossary no
 4. Click **Install**, then **Enable**.
 
 ### Manual installation
-1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/YOUR_USERNAME/highlight-reference/releases/latest).
+1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/saeedghobadi/highlight-reference/releases/latest).
 2. In your vault, create the folder `.obsidian/plugins/highlight-reference/`.
 3. Copy the three files into it.
 4. Restart Obsidian and enable the plugin from **Settings → Community plugins**.
@@ -46,7 +45,7 @@ An Obsidian plugin that shows meanings for highlighted words using a glossary no
 ### Using BRAT (for beta versions)
 1. Install the **BRAT** plugin.
 2. In BRAT settings, click **Add Beta plugin**.
-3. Enter the repository URL: `https://github.com/YOUR_USERNAME/highlight-reference`
+3. Enter the repository URL: `https://github.com/saeedghobadi/highlight-reference`
 4. Click **Add Plugin**.
 
 ---
@@ -159,7 +158,7 @@ reference:
 
 Ideas, suggestions, and bug reports are welcome:
 
-- **Issues**: [github.com/YOUR_USERNAME/highlight-reference/issues](https://github.com/YOUR_USERNAME/highlight-reference/issues)
+- **Issues**: [github.com/saeedghobadi/highlight-reference/issues](https://github.com/saeedghobadi/highlight-reference/issues)
 - **Pull Requests**: welcome!
 
 ---
@@ -229,7 +228,7 @@ More Obsidian tutorials and content on our channels:
 4. **Install** و سپس **Enable** را بزنید.
 
 ### نصب دستی
-1. فایل‌های `main.js`، `manifest.json` و `styles.css` را از [آخرین نسخه](https://github.com/YOUR_USERNAME/highlight-reference/releases/latest) دانلود کنید.
+1. فایل‌های `main.js`، `manifest.json` و `styles.css` را از [آخرین نسخه](https://github.com/saeedghobadi/highlight-reference/releases/latest) دانلود کنید.
 2. در پوشهٔ vault خود، مسیر `.obsidian/plugins/highlight-reference/` را بسازید.
 3. سه فایل را داخل آن کپی کنید.
 4. Obsidian را ری‌استارت کنید و از **Settings → Community plugins** پلاگین را فعال کنید.
@@ -237,7 +236,7 @@ More Obsidian tutorials and content on our channels:
 ### نصب با BRAT (برای نسخه‌های آزمایشی)
 1. پلاگین **BRAT** را نصب کنید.
 2. در تنظیمات BRAT، گزینهٔ **Add Beta plugin** را بزنید.
-3. آدرس مخزن را وارد کنید: `https://github.com/YOUR_USERNAME/highlight-reference`
+3. آدرس مخزن را وارد کنید: `https://github.com/saeedghobadi/highlight-reference`
 4. **Add Plugin** را بزنید.
 
 ---
@@ -350,7 +349,7 @@ reference:
 
 اگر ایده، پیشنهاد یا باگی دارید، خوشحال می‌شوم بشنوم:
 
-- **Issue**: [github.com/YOUR_USERNAME/highlight-reference/issues](https://github.com/YOUR_USERNAME/highlight-reference/issues)
+- **Issue**: [github.com/saeedghobadi/highlight-reference/issues](https://github.com/saeedghobadi/highlight-reference/issues)
 - **Pull Request**: خوش‌آمدید!
 
 ---
@@ -397,3 +396,4 @@ reference:
 </p>
 
 </details>
+```
