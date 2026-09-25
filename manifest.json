@@ -1,0 +1,9 @@
+{
+  "id": "highlight-reference",
+  "name": "Highlight Reference",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Show meanings for ==highlighted== words from a glossary note referenced in each note's frontmatter, with quick add for missing terms.",
+  "author": "saeedghobadi",
+  "isDesktopOnly": false
+}

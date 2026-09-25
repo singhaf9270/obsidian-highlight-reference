@@ -1,0 +1,369 @@
+/* ============================================================
+   تولتیپ معنی
+   ============================================================ */
+.hm-tooltip {
+  position: fixed;
+  z-index: var(--layer-tooltip, 999);
+  max-width: min(420px, calc(100vw - 16px));
+  max-height: 45vh;
+  overflow: auto;
+  padding: 10px 12px;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+  font-size: var(--font-ui-small);
+  color: var(--text-normal);
+  direction: rtl;
+  animation: hm-fade 0.12s ease-out;
+}
+
+@keyframes hm-fade {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hm-tooltip-term {
+  font-weight: var(--font-semibold);
+  color: var(--text-accent);
+  margin-bottom: 4px;
+  unicode-bidi: plaintext;
+}
+
+.hm-tooltip-meaning { unicode-bidi: plaintext; }
+.hm-tooltip-meaning p { margin: 0 0 4px 0; }
+.hm-tooltip-meaning p:last-child { margin-bottom: 0; }
+.hm-tooltip-meaning ul,
+.hm-tooltip-meaning ol { margin: 0; padding-inline-start: 20px; }
+
+.hm-tooltip-notfound {
+  color: var(--text-faint);
+  font-style: italic;
+  unicode-bidi: plaintext;
+}
+
+.hm-tooltip-add {
+  margin-top: 8px;
+  color: var(--text-accent);
+  cursor: pointer;
+  font-size: var(--font-ui-small);
+  font-weight: var(--font-medium);
+}
+.hm-tooltip-add:hover { text-decoration: underline; }
+
+.hm-tooltip-src {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px solid var(--background-modifier-border);
+  color: var(--text-muted);
+  font-size: var(--font-ui-smaller);
+}
+
+.hm-tooltip-actions { display: flex; gap: 10px; white-space: nowrap; }
+.hm-tooltip-src .hm-open {
+  color: var(--text-accent);
+  cursor: pointer;
+}
+.hm-tooltip-src .hm-open:hover { text-decoration: underline; }
+
+/* ============================================================
+   پیشنهادهای پنجرهٔ انتخاب مرجع
+   ============================================================ */
+.hm-suggest-item { display: flex; flex-direction: column; gap: 2px; }
+.hm-suggest-item .hm-suggest-name { font-weight: var(--font-medium); }
+.hm-suggest-item .hm-suggest-path {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  unicode-bidi: plaintext;
+}
+
+/* ============================================================
+   نوار وضعیت
+   ============================================================ */
+.hm-status { cursor: pointer; }
+.hm-status:hover { color: var(--text-accent); }
+
+/* ============================================================
+   مودال افزودن/ویرایش
+   ============================================================ */
+.hm-add-modal { direction: rtl; max-width: 480px; }
+.hm-add-modal h3 { margin: 0 0 4px 0; }
+
+.hm-term-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 4px;
+}
+.hm-term-label { color: var(--text-muted); }
+.hm-term-pill {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: 999px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  font-weight: var(--font-semibold);
+  unicode-bidi: plaintext;
+}
+
+.hm-field-label { font-weight: var(--font-medium); margin: 12px 0 4px; }
+.hm-full-width { width: 100%; }
+.hm-add-modal textarea { resize: vertical; min-height: 100px; }
+
+.hm-add-hint {
+  margin-top: 10px;
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  unicode-bidi: plaintext;
+}
+.hm-add-keys {
+  margin-top: 4px;
+  font-size: var(--font-ui-smaller);
+  color: var(--text-faint);
+}
+.hm-add-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 14px;
+}
+
+/* ============================================================
+   تنظیمات — هینت
+   ============================================================ */
+.hm-setting-hint {
+  color: var(--text-muted);
+  font-size: .88em;
+  line-height: 1.75;
+  margin: 4px 0 12px;
+}
+
+/* ============================================================
+   نشانگر موس روی هایلایت‌ها
+   ============================================================ */
+.markdown-preview-view mark,
+.markdown-source-view .cm-highlight {
+  cursor: help;
+}
+
+/* ============================================================
+   معنی درج‌شده کنار هایلایت (حالت خواندن)
+   ============================================================ */
+.hm-inline-meaning {
+  display: inline-block;
+  margin-inline-start: 6px;
+  padding: 0 8px;
+  border: 1px dashed var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+  font-size: 0.85em;
+  vertical-align: middle;
+  unicode-bidi: plaintext;
+}
+
+/* ============================================================
+   نمایش مقدار اسلایدر کنارش
+   ============================================================ */
+.hm-slider-value {
+  display: inline-block;
+  min-width: 60px;
+  margin-inline-start: 10px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  font-family: var(--font-monospace);
+  font-size: 0.8em;
+  color: var(--text-muted);
+  text-align: center;
+  direction: ltr;
+  align-self: center;
+}
+
+/* ============================================================
+   راست‌چین (فارسی) — تنظیمات (مثل نسخه اصلی، فقط اسلایدر اصلاح شد)
+   ============================================================ */
+.hm-rtl,
+.hm-rtl.vertical-tab-content,
+.hm-rtl .vertical-tab-content-container,
+.hm-rtl .vertical-tab-content,
+.hm-rtl .setting-item,
+.hm-rtl .setting-item-info,
+.hm-rtl .setting-item-name,
+.hm-rtl .setting-item-description,
+.hm-rtl .hm-setting-hint,
+.hm-rtl h2,
+.hm-rtl h3,
+.hm-rtl p {
+  direction: rtl;
+  text-align: right;
+}
+
+.hm-rtl .setting-item-info {
+  align-items: flex-end;
+}
+
+/* ============================================================
+   اصلاح اسلایدر در حالت RTL
+   ------------------------------------------------------------
+   فقط خود اسلایدر و inputهای متنی LTR می‌شوند تا جهت‌شون
+   درست کار کنه. بقیه چیزها راست‌چین می‌مونن.
+   ============================================================ */
+
+/* اسلایدر: جهت LTR تا در فارسی هم چپ=کم، راست=زیاد بمونه */
+/* اسلایدر: جهت LTR تا در فارسی هم چپ=کم، راست=زیاد بمونه */
+/* اسلایدر در حالت RTL: فقط آینه کن، direction را دست نزن */
+.hm-rtl .setting-item-control input[type="range"] {
+  transform: scaleX(-1);
+}
+/* inputهای متنی/عددی/dropdown هم LTR (چون محتواشون انگلیسی/مسیره) */
+.hm-rtl .setting-item-control input[type="text"],
+.hm-rtl .setting-item-control input[type="number"],
+.hm-rtl .setting-item-control input[type="search"],
+.hm-rtl .setting-item-control .dropdown {
+  direction: ltr;
+}
+
+/* تگ مقدار اسلایدر (hm-slider-value) که خودمون ساختیم */
+.hm-rtl .hm-slider-value {
+  direction: ltr;
+}
+
+/* بخش کانال‌ها در فارسی هم وسط‌چین بمونه */
+.hm-rtl .hm-channels,
+.hm-rtl .hm-channels-header,
+.hm-rtl .hm-ch-info,
+.hm-rtl .hm-channels-title,
+.hm-rtl .hm-channels-desc {
+  text-align: center !important;
+  direction: rtl;
+}
+
+/* ============================================================
+   بخش «ما را دنبال کنید» — وسط‌چین و مدرن
+   ============================================================ */
+.hm-channels {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  text-align: center;
+}
+
+.hm-channels-header {
+  margin: 0 auto 14px;
+  max-width: 520px;
+  text-align: center;
+}
+
+.hm-channels-title {
+  margin: 0 0 6px;
+  font-size: 0.95em;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.hm-channels-desc {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.82em;
+  line-height: 1.6;
+}
+
+/* ردیف کارت‌ها */
+.hm-channels-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* کارت pill افقی */
+.hm-ch-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 8px;
+  border-radius: 999px;
+  text-decoration: none !important;
+  color: var(--text-normal) !important;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  transition: transform .15s ease, border-color .15s ease, background .15s ease, box-shadow .15s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,.04);
+}
+
+.hm-ch-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--hm-accent, #888);
+  background: var(--background-modifier-hover);
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+
+/* آیکون دایره‌ای */
+.hm-ch-icon-ring {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--hm-accent, #888);
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+
+.hm-ch-icon-ring svg {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+/* متن کارت */
+.hm-ch-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  text-align: start;
+  line-height: 1.2;
+}
+
+.hm-ch-name {
+  font-weight: 600;
+  font-size: 0.85em;
+  color: var(--text-normal);
+}
+
+.hm-ch-handle {
+  font-size: 0.7em;
+  color: var(--text-muted);
+  direction: ltr;
+  font-family: var(--font-monospace);
+  opacity: .8;
+}
+
+/* رنگ‌های اختصاصی هر کانال */
+.hm-ch-telegram { --hm-accent: #229ED9; }
+.hm-ch-telegram .hm-ch-icon-ring {
+  background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
+}
+
+.hm-ch-bale { --hm-accent: #22A06B; }
+.hm-ch-bale .hm-ch-icon-ring {
+  background: linear-gradient(135deg, #3ED598 0%, #22A06B 100%);
+}
+
+.hm-ch-youtube { --hm-accent: #FF0033; }
+.hm-ch-youtube .hm-ch-icon-ring {
+  background: linear-gradient(135deg, #FF4B4B 0%, #C4302B 100%);
+}
