@@ -4,16 +4,12 @@
 >
 > نمایش معنی واژه‌ها روی هایلایت‌ها در Obsidian — بدون نیاز به باز کردن واژه‌نامه.
 
-![Obsidian](https://img.shields.io/badge/Obsidian-Plugin-7C3AED?style=flat-square\&logo=obsidian\&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)
+
+\
 
 ---
 
-<!-- ==================== ENGLISH ==================== -->
-
-<details open>
-<summary><b>🇬🇧 English</b></summary>
+<details open> <summary><b>🇬🇧 English</b></summary>
 
 ## ✨ Features
 
@@ -182,39 +178,13 @@ Released under the **MIT** license. See [LICENSE](LICENSE) for details.
 
 More Obsidian tutorials and content on our channels:
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://t.me/obsidiantut">
-        <img src="https://img.shields.io/badge/Telegram-%40obsidiantut-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://ble.ir/obsidiantut">
-        <img src="https://img.shields.io/badge/Bale-%40obsidiantut-22A06B?style=for-the-badge" alt="Bale">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://youtube.com/@obsidiantut">
-        <img src="https://img.shields.io/badge/YouTube-%40obsidiantut-FF0033?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>Telegram</b><br>@obsidiantut</td>
-    <td align="center"><b>Bale</b><br>@obsidiantut</td>
-    <td align="center"><b>YouTube</b><br>@obsidiantut</td>
-  </tr>
-</table>
+<table>   <tr>     <td align="center">       <a href="https://t.me/obsidiantut">         <img src="https://img.shields.io/badge/Telegram-%40obsidiantut-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">       </a>     </td>     <td align="center">       <a href="https://ble.ir/obsidiantut">         <img src="https://img.shields.io/badge/Bale-%40obsidiantut-22A06B?style=for-the-badge" alt="Bale">       </a>     </td>     <td align="center">       <a href="https://youtube.com/@obsidiantut">         <img src="https://img.shields.io/badge/YouTube-%40obsidiantut-FF0033?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">       </a>     </td>   </tr>   <tr>     <td align="center"><b>Telegram</b><br>@obsidiantut</td>     <td align="center"><b>Bale</b><br>@obsidiantut</td>     <td align="center"><b>YouTube</b><br>@obsidiantut</td>   </tr> </table>
 
 </details>
 
 ---
 
-<!-- ==================== PERSIAN ==================== -->
-
-<details open>
-<summary><b>🇮🇷 فارسی</b></summary>
+<details open> <summary><b>🇮🇷 فارسی</b></summary>
 
 ## ✨ ویژگی‌ها
 
@@ -387,35 +357,10 @@ reference:
 
 آموزش‌ها و مطالب بیشتر دربارهٔ Obsidian در کانال‌های ما:
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://t.me/obsidiantut">
-        <img src="https://img.shields.io/badge/Telegram-%40obsidiantut-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://ble.ir/obsidiantut">
-        <img src="https://img.shields.io/badge/Bale-%40obsidiantut-22A06B?style=for-the-badge" alt="Bale">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://youtube.com/@obsidiantut">
-        <img src="https://img.shields.io/badge/YouTube-%40obsidiantut-FF0033?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>تلگرام</b><br>@obsidiantut</td>
-    <td align="center"><b>بله</b><br>@obsidiantut</td>
-    <td align="center"><b>یوتیوب</b><br>@obsidiantut</td>
-  </tr>
-</table>
+<table>   <tr>     <td align="center">       <a href="https://t.me/obsidiantut">         <img src="https://img.shields.io/badge/Telegram-%40obsidiantut-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">       </a>     </td>     <td align="center">       <a href="https://ble.ir/obsidiantut">         <img src="https://img.shields.io/badge/Bale-%40obsidiantut-22A06B?style=for-the-badge" alt="Bale">       </a>     </td>     <td align="center">       <a href="https://youtube.com/@obsidiantut">         <img src="https://img.shields.io/badge/YouTube-%40obsidiantut-FF0033?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">       </a>     </td>   </tr>   <tr>     <td align="center"><b>تلگرام</b><br>@obsidiantut</td>     <td align="center"><b>بله</b><br>@obsidiantut</td>     <td align="center"><b>یوتیوب</b><br>@obsidiantut</td>   </tr> </table>
 
 ---
 
-<p align="center">
-  ساخته شده با ❤️ برای جامعهٔ Obsidian فارسی
-</p>
+<p align="center">   ساخته شده با ❤️ برای جامعهٔ Obsidian فارسی </p>
 
 </details>
