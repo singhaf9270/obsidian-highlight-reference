@@ -4,11 +4,6 @@
 >
 > نمایش معنی واژه‌ها روی هایلایت‌ها در Obsidian — بدون نیاز به باز کردن واژه‌نامه.
 
-
-\
-
----
-
 <details open> <summary><b>🇬🇧 English</b></summary>
 
 ## ✨ Features
@@ -43,9 +38,13 @@
 ### Using BRAT (for beta versions)
 
 1. Install the **BRAT** plugin.
+
 2. In BRAT settings, click **Add Beta plugin**.
+
 3. Enter the repository URL:
+
    `https://github.com/singhaf9270/obsidian-highlight-reference`
+
 4. Click **Add Plugin**.
 
 ---
