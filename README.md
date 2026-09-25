@@ -1,4 +1,3 @@
-```markdown
 # Highlight Reference
 
 > Show dictionary meanings on hover over `==highlighted==` words in Obsidian.
