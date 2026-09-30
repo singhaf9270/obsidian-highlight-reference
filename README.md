@@ -1,4 +1,4 @@
-# Highlight Reference
+# Highlight Reference 
 
 > **Turn any `==highlight==` into an instant knowledge lookup.**
 >
