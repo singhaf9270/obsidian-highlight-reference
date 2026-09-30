@@ -1,365 +1,397 @@
 # Highlight Reference
 
-> Show dictionary meanings on hover over `==highlighted==` words in Obsidian.
+> Turn highlighted words into interactive glossary references.
 >
-> نمایش معنی واژه‌ها روی هایلایت‌ها در Obsidian — بدون نیاز به باز کردن واژه‌نامه.
+> هایلایت‌ها را به واژه‌های قابل‌ارجاع با نمایش معنی و توضیح تبدیل کنید.
 
-<details open> <summary><b>🇬🇧 English</b></summary>
+Highlight Reference lets you hover over any `==highlighted==` term and instantly see its definition, explanation, note, or translation from your personal glossary.
+
+No searching. No switching notes. No interruptions.
+
+---
+
+## 🎬 Demo
+
+assets/demo.gif
+
+---
+
+## 💡 What problem does this solve?
+
+When writing technical notes, studying languages, documenting concepts, or building a personal knowledge base, many terms need explanations.
+
+Normally you have to:
+
+- Open a glossary note
+- Search for the term
+- Return to your original note
+
+With Highlight Reference:
+
+1. Highlight the term.
+2. Hover the mouse.
+3. See the meaning instantly.
+
+---
 
 ## ✨ Features
 
-* **Hover to see meaning** — move your mouse over a highlight and a tooltip appears.
-* **Quick add for missing words** — if a word isn't in the glossary, add it with one click.
-* **Edit existing meanings** — the tooltip has an edit button.
-* **Open in source** — jump to the exact line in your glossary with one click.
-* **Inline meaning** — show the meaning as a small label next to the highlight (reading view only).
-* **Multiple glossaries** — each note can reference several glossary files.
-* **Bilingual UI** — Persian (فارسی) and English.
-* **Markdown support** — meanings can include links, lists, and formatting.
+- ✅ Hover tooltips for highlighted words
+- ✅ Quick add for missing terms
+- ✅ Edit meanings directly from the tooltip
+- ✅ Open glossary source with one click
+- ✅ Multiple glossary support
+- ✅ Markdown rendering inside definitions
+- ✅ Inline meanings in Reading View
+- ✅ Persian and English interface
+- ✅ Works completely offline
+- ✅ Fast dictionary caching and auto reload
 
 ---
 
-## 🚀 Installation
+## 🚀 Quick Start
 
-### From the official Obsidian marketplace
+### Step 1: Create a glossary
 
-1. Open Obsidian.
-2. Go to **Settings → Community plugins**.
-3. Click **Browse** and search for "Highlight Reference".
-4. Click **Install**, then **Enable**.
-
-### Manual installation
-
-1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/singhaf9270/obsidian-highlight-reference/releases/latest).
-2. In your vault, create the folder `.obsidian/plugins/highlight-reference/`.
-3. Copy the three files into it.
-4. Restart Obsidian and enable the plugin from **Settings → Community plugins**.
-
-### Using BRAT (for beta versions)
-
-1. Install the **BRAT** plugin.
-
-2. In BRAT settings, click **Add Beta plugin**.
-
-3. Enter the repository URL:
-
-   `https://github.com/singhaf9270/obsidian-highlight-reference`
-
-4. Click **Add Plugin**.
-
----
-
-## 📖 Usage
-
-### 1. Create a glossary
-
-Create a note (e.g. `Glossary.md`) and write one entry per line:
+Create a note such as `Glossary.md`.
 
 ```markdown
-term :: meaning
+Artificial Intelligence :: The simulation of human intelligence by machines.
+
+Machine Learning :: A branch of AI focused on learning from data.
+
+Frontmatter :: Metadata stored at the beginning of a note.
+```
+
+---
+
+### Step 2: Connect a note to the glossary
+
+Add a frontmatter reference:
+
+```yaml
+---
+reference: Glossary
+---
+```
+
+---
+
+### Step 3: Use highlighted terms
+
+```markdown
+==Artificial Intelligence== is transforming many industries.
+
+==Machine Learning== is a subset of AI.
+```
+
+---
+
+### Step 4: Hover
+
+Move your mouse over a highlighted term.
+
+A tooltip appears instantly with its definition.
+
+---
+
+## 📖 Glossary Formats
+
+### Standard Format
+
+```markdown
+Term :: Meaning
 ```
 
 Example:
 
 ```markdown
-==highlight== :: Text surrounded by == that becomes bold.
-==frontmatter== :: The section at the top of a note, between two --- lines.
-  Continuation of the meaning goes on the next line with indentation.
+Markdown :: A lightweight markup language.
 ```
 
-You can also use the highlight syntax directly:
+---
+
+### Highlight Format
 
 ```markdown
-==term== meaning of the term
+==Term== Meaning
 ```
 
-### 2. Link a note to a glossary
+Example:
 
-In the **frontmatter** of your note, write:
-
-```yaml
----
-reference: "Glossary"
----
+```markdown
+==Markdown== A lightweight markup language.
 ```
 
-Other accepted keys:
+---
 
-`dictionary`, `glossary`, `vocab`, `lexicon`, `reference`, `source`
+### Multi-line Definitions
 
-You can list multiple glossaries:
+```markdown
+Machine Learning :: A branch of artificial intelligence.
+
+  Focuses on learning patterns from data.
+
+  Used in prediction, classification and recommendations.
+```
+
+---
+
+## 📚 Multiple Glossaries
+
+You can reference more than one glossary:
 
 ```yaml
 ---
 reference:
-  - "Main Glossary"
-  - "Specialized Glossary"
+  - Main Glossary
+  - AI Glossary
+  - Medical Terms
 ---
 ```
 
-### 3. Interact with highlights
+The plugin automatically combines all entries.
 
-| Action                   | Result                                            |
-| ------------------------ | ------------------------------------------------- |
-| **Hover**                | Show the meaning tooltip                          |
-| **Click**                | Existing word: tooltip · Missing word: add dialog |
-| **Ctrl + Click**         | Open the entry's line in the glossary             |
-| **Shift + Click**        | Edit an existing meaning or add a new word        |
-| **Ctrl + Shift + Click** | Open or add, depending on whether the word exists |
+---
 
-### 4. Command palette
+## 🖱️ Interactions
 
-* **Reload this note's glossary** — reload the glossary.
-* **Choose reference note for this note** — pick a reference note.
-* **Add/Edit highlighted word at cursor** — add or edit the word under the cursor.
+| Action | Result |
+|----------|----------|
+| Hover | Show definition |
+| Click | Open tooltip or add missing term |
+| Shift + Click | Edit definition |
+| Ctrl + Click | Open source entry |
+| Ctrl + Shift + Click | Open or create entry |
+
+---
+
+## ⌨️ Commands
+
+Available from the Command Palette:
+
+- Reload this note's glossary
+- Choose reference note for this note
+- Add/Edit highlighted word at cursor
 
 ---
 
 ## ⚙️ Settings
 
-| Setting                   | Description                                              |
-| ------------------------- | -------------------------------------------------------- |
-| **Language**              | Persian or English                                       |
-| **Frontmatter key**       | Default key for the glossary path (default: `reference`) |
-| **Show meaning on hover** | Enable/disable the tooltip                               |
-| **Hover delay**           | Time to wait before showing the tooltip (0–1000 ms)      |
-| **"Not found" message**   | Show a tooltip with an add button for missing words      |
-| **Inline meaning**        | Show the meaning as a small label (reading view only)    |
+| Setting | Description |
+|----------|-------------|
+| Language | Persian or English UI |
+| Frontmatter Key | Custom reference field name |
+| Hover Tooltip | Enable or disable hover behavior |
+| Hover Delay | Delay before showing tooltip |
+| Not Found Message | Allow quick adding of missing terms |
+| Inline Meaning | Show meanings beside highlights in Reading View |
 
 ---
 
-## 💡 Notes
+## 📝 Notes
 
-* Continuation lines must be **indented** or start with `>`.
-* Meanings support Markdown: links, lists, bold, italic, etc.
-* If the reference note isn't found, an error notice appears.
-* For quick edits, use **Shift + Click** on a highlight.
-* Terms are normalized: `ي` → `ی`, `ك` → `ک`, ZWNJ and extra spaces are removed.
+- Definitions support Markdown formatting.
+- Internal links and wiki links are supported.
+- Multiple glossary files can be attached to a single note.
+- Meanings update automatically when glossary files change.
+- Terms are normalized to improve Persian text matching.
 
 ---
 
 ## 🔧 Troubleshooting
 
-**Words aren't showing:**
+### Definitions do not appear
 
-* Make sure the frontmatter key `reference` exists in your note.
-* The reference note must exist in your vault.
-* Run **Reload this note's glossary** from the command palette.
+Make sure:
 
-**The tooltip doesn't appear:**
+- Your note contains a valid `reference` field.
+- The glossary note exists.
+- The highlighted term exists in the glossary.
+- The glossary has been reloaded.
 
-* Check the **Show meaning on hover** setting.
-* If the delay is too long, lower the **Hover delay** value.
+---
 
-**Meanings aren't updating:**
+### Tooltip does not appear
 
-* Save the glossary file; the plugin detects changes automatically.
-* Or use the reload command.
+Check:
+
+- Hover tooltips are enabled.
+- Hover delay is not too high.
+- The term is highlighted using:
+
+```markdown
+==term==
+```
+
+---
+
+### Changes are not visible
+
+Try:
+
+- Saving the glossary note.
+- Running **Reload this note's glossary** from the Command Palette.
+
+---
+
+## 📦 Installation
+
+### Community Plugins
+
+1. Open **Settings → Community Plugins**
+2. Click **Browse**
+3. Search for **Highlight Reference**
+4. Install and enable
+
+---
+
+### Manual Installation
+
+Download:
+
+- `main.js`
+- `manifest.json`
+- `styles.css`
+
+from the latest release and place them in:
+
+```text
+.obsidian/plugins/highlight-reference/
+```
+
+Restart Obsidian and enable the plugin.
+
+---
+
+### BRAT
+
+Use the repository URL:
+
+```text
+https://github.com/singhaf9270/obsidian-highlight-reference
+```
 
 ---
 
 ## 🤝 Contributing
 
-Ideas, suggestions, and bug reports are welcome:
+Ideas, suggestions, bug reports, and pull requests are welcome.
 
-* **Issues**: [GitHub Issues](https://github.com/singhaf9270/obsidian-highlight-reference/issues)
-* **Pull Requests**: welcome!
+- Issues: https://github.com/singhaf9270/obsidian-highlight-reference/issues
+- Pull Requests: Welcome
 
 ---
 
 ## 📄 License
 
-Released under the **MIT** license. See [LICENSE](LICENSE) for details.
+MIT License
+
+See LICENSE.
 
 ---
 
-## 🌐 Follow us
+# فارسی 🇮🇷
 
-More Obsidian tutorials and content on our channels:
+## Highlight Reference چیست؟
 
-<table>   <tr>     <td align="center">       <a href="https://t.me/obsidiantut">         <img src="https://img.shields.io/badge/Telegram-%40obsidiantut-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">       </a>     </td>     <td align="center">       <a href="https://ble.ir/obsidiantut">         <img src="https://img.shields.io/badge/Bale-%40obsidiantut-22A06B?style=for-the-badge" alt="Bale">       </a>     </td>     <td align="center">       <a href="https://youtube.com/@obsidiantut">         <img src="https://img.shields.io/badge/YouTube-%40obsidiantut-FF0033?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">       </a>     </td>   </tr>   <tr>     <td align="center"><b>Telegram</b><br>@obsidiantut</td>     <td align="center"><b>Bale</b><br>@obsidiantut</td>     <td align="center"><b>YouTube</b><br>@obsidiantut</td>   </tr> </table>
+Highlight Reference به شما اجازه می‌دهد روی هر عبارت هایلایت‌شده با فرمت:
 
-</details>
+```markdown
+==واژه==
+```
 
----
+مکث کنید و معنی، توضیح، ترجمه یا یادداشت آن را از واژه‌نامه شخصی خود مشاهده کنید.
 
-<details open> <summary><b>🇮🇷 فارسی</b></summary>
-
-## ✨ ویژگی‌ها
-
-* **نمایش معنی با هاور** — موس را روی هایلایت ببرید، معنی به‌صورت تولتیپ ظاهر می‌شود.
-* **افزودن سریع واژهٔ غایب** — اگر واژه در واژه‌نامه نبود، با یک کلیک به آن اضافه کنید.
-* **ویرایش معنی موجود** — روی تولتیپ دکمهٔ ویرایش دارد.
-* **باز کردن در منبع** — با یک کلیک به خط مربوطه در واژه‌نامه بروید.
-* **معنی درج‌شده کنار هایلایت** — در حالت خواندن، بدون نیاز به هاور.
-* **پشتیبانی از چند واژه‌نامه** — هر یادداشت می‌تواند چند مرجع داشته باشد.
-* **دو زبانه** — رابط کاربری فارسی و انگلیسی.
-* **پشتیبانی از Markdown** — معنی‌ها می‌توانند شامل لینک، لیست و قالب‌بندی باشند.
+بدون باز کردن واژه‌نامه، بدون جستجو و بدون ترک یادداشت فعلی.
 
 ---
 
-## 🚀 نصب
+## 🎬 نمایش
 
-### از بازار رسمی Obsidian
+![Highlight Reference Demo قابلیت‌ها
 
-1. Obsidian را باز کنید.
-2. به **Settings → Community plugins** بروید.
-3. **Browse** را بزنید و «Highlight Reference» را جستجو کنید.
-4. **Install** و سپس **Enable** را بزنید.
-
-### نصب دستی
-
-1. فایل‌های `main.js`، `manifest.json` و `styles.css` را از [آخرین نسخه](https://github.com/singhaf9270/obsidian-highlight-reference/releases/latest) دانلود کنید.
-2. در پوشهٔ vault خود، مسیر `.obsidian/plugins/highlight-reference/` را بسازید.
-3. سه فایل را داخل آن کپی کنید.
-4. Obsidian را ری‌استارت کنید و از **Settings → Community plugins** پلاگین را فعال کنید.
-
-### نصب با BRAT (برای نسخه‌های آزمایشی)
-
-1. پلاگین **BRAT** را نصب کنید.
-
-2. در تنظیمات BRAT، گزینهٔ **Add Beta plugin** را بزنید.
-
-3. آدرس مخزن را وارد کنید:
-
-   `https://github.com/singhaf9270/obsidian-highlight-reference`
-
-4. **Add Plugin** را بزنید.
+- ✅ نمایش معنی با هاور
+- ✅ افزودن سریع واژه‌های موجود‌نبودن
+- ✅ ویرایش مستقیم توضیحات
+- ✅ باز کردن محل واژه در مرجع
+- ✅ پشتیبانی از چند واژه‌نامه
+- ✅ پشتیبانی از Markdown
+- ✅ نمایش توضیح کنار هایلایت
+- ✅ رابط فارسی و انگلیسی
+- ✅ کاملاً آفلاین
+- ✅ بارگذاری سریع و خودکار واژه‌نامه
 
 ---
 
-## 📖 نحوهٔ استفاده
+## 🚀 شروع سریع
 
 ### ۱. ساخت واژه‌نامه
 
-یک یادداشت بسازید (مثلاً `واژه‌نامه.md`) و هر خط یک واژه با فرمت زیر بنویسید:
+```markdown
+هوش مصنوعی :: شبیه‌سازی توانایی‌های هوشمند توسط ماشین‌ها
+
+یادگیری ماشین :: شاخه‌ای از هوش مصنوعی
+```
+
+---
+
+### ۲. اتصال یادداشت به واژه‌نامه
+
+```yaml
+---
+reference: واژه‌نامه
+---
+```
+
+---
+
+### ۳. استفاده از واژه‌ها
+
+```markdown
+==هوش مصنوعی== یکی از مهم‌ترین حوزه‌های فناوری است.
+```
+
+---
+
+### ۴. مشاهده توضیح
+
+موس را روی واژه ببرید تا توضیح آن نمایش داده شود.
+
+---
+
+## 📖 فرمت‌های پشتیبانی‌شده
 
 ```markdown
 واژه :: معنی
 ```
 
-مثال:
+یا
 
 ```markdown
-==هایلایت== :: متنی که با == احاطه شده و برجسته می‌شود.
-==فرانت‌متر== :: بخش بالای یادداشت که بین دو --- قرار می‌گیرد.
-  ادامهٔ توضیح در خط بعدی با تورفتگی نوشته می‌شود.
+==واژه== معنی
 ```
 
-می‌توانید از فرمت هایلایتی هم استفاده کنید:
-
-```markdown
-==واژه== معنی آن
-```
-
-### ۲. اتصال یادداشت به واژه‌نامه
-
-در **فرانت‌متر** یادداشت خود بنویسید:
-
-```yaml
----
-reference: "واژه‌نامه"
----
-```
-
-کلیدهای دیگری هم پذیرفته می‌شوند:
-
-`dictionary`، `glossary`، `vocab`، `lexicon`، `مرجع`، `منبع`، `واژه‌نامه`، `لغتنامه`، `واژگان`
-
-می‌توانید چند مرجع بدهید:
-
-```yaml
----
-reference:
-  - "واژه‌نامه اصلی"
-  - "واژه‌نامه تخصصی"
----
-```
-
-### ۳. تعامل با هایلایت‌ها
-
-| عمل                     | نتیجه                                           |
-| ----------------------- | ----------------------------------------------- |
-| **هاور**                | نمایش تولتیپ معنی                               |
-| **کلیک**                | واژهٔ موجود: تولتیپ · واژهٔ غایب: پنجرهٔ افزودن |
-| **Ctrl + کلیک**         | باز کردن خط واژه در واژه‌نامه                   |
-| **Shift + کلیک**        | ویرایش معنی موجود یا افزودن واژهٔ جدید          |
-| **Ctrl + Shift + کلیک** | باز کردن یا افزودن بسته به وجود واژه            |
-
-### ۴. دستورات پالت
-
-* **Reload this note's glossary** — بارگذاری دوبارهٔ واژه‌نامه.
-* **Choose reference note for this note** — انتخاب یادداشت مرجع.
-* **Add/Edit highlighted word at cursor** — افزودن یا ویرایش واژهٔ زیر نشانگر.
-
 ---
 
-## ⚙️ تنظیمات
+## 🖱️ میانبرها
 
-| تنظیم                     | توضیح                                                   |
-| ------------------------- | ------------------------------------------------------- |
-| **زبان**                  | فارسی یا انگلیسی                                        |
-| **کلید فرانت‌متر**        | کلید پیش‌فرض برای مسیر واژه‌نامه (پیش‌فرض: `reference`) |
-| **نمایش معنی با هاور**    | فعال/غیرفعال کردن تولتیپ                                |
-| **تاخیر هاور**            | مدت انتظار قبل از نمایش تولتیپ (۰ تا ۱۰۰۰ میلی‌ثانیه)   |
-| **پیام «پیدا نشد»**       | نمایش تولتیپ با دکمهٔ افزودن برای واژه‌های غایب         |
-| **درج معنی کنار هایلایت** | نمایش معنی به‌صورت برچسب کوچک (فقط حالت خواندن)         |
-
----
-
-## 💡 نکات
-
-* ادامهٔ معنی در خط بعدی باید **تورفتگی** داشته باشد یا با `>` شروع شود.
-* معنی‌ها از Markdown پشتیبانی می‌کنند: لینک، لیست، برجسته‌سازی و...
-* اگر یادداشت مرجع پیدا نشد، پیام خطا نمایش داده می‌شود.
-* برای ویرایش سریع، از **Shift + کلیک** روی هایلایت استفاده کنید.
-* واژه‌ها نرمال‌سازی می‌شوند: `ي` به `ی`، `ك` به `ک`، حذف نیم‌فاصله و فاصله‌های اضافی.
-
----
-
-## 🔧 عیب‌یابی
-
-**واژه‌ها نمایش داده نمی‌شوند:**
-
-* مطمئن شوید در فرانت‌متر یادداشت، کلید `reference` وجود دارد.
-* یادداشت مرجع باید در vault شما موجود باشد.
-* از دستور **Reload this note's glossary** استفاده کنید.
-
-**تولتیپ نمایش داده نمی‌شود:**
-
-* تنظیم **نمایش معنی با هاور** را بررسی کنید.
-* اگر تاخیر زیاد است، مقدار **تاخیر هاور** را کم کنید.
-
-**معنی به‌روزرسانی نمی‌شود:**
-
-* فایل واژه‌نامه را ذخیره کنید؛ پلاگین به‌طور خودکار تغییرات را تشخیص می‌دهد.
-* یا از دستور بارگذاری دوباره استفاده کنید.
-
----
-
-## 🤝 مشارکت
-
-اگر ایده، پیشنهاد یا باگی دارید، خوشحال می‌شوم بشنوم:
-
-* **Issue**: [GitHub Issues](https://github.com/singhaf9270/obsidian-highlight-reference/issues)
-* **Pull Request**: خوش‌آمدید!
+| عمل | نتیجه |
+|------|--------|
+| هاور | نمایش معنی |
+| کلیک | نمایش یا افزودن |
+| Shift + کلیک | ویرایش |
+| Ctrl + کلیک | باز کردن منبع |
+| Ctrl + Shift + کلیک | باز کردن یا افزودن |
 
 ---
 
 ## 📄 مجوز
 
-این پروژه تحت مجوز **MIT** منتشر شده است. جزئیات را در فایل [LICENSE](LICENSE) ببینید.
+MIT License
 
 ---
 
-## 🌐 ما را دنبال کنید
-
-آموزش‌ها و مطالب بیشتر دربارهٔ Obsidian در کانال‌های ما:
-
-<table>   <tr>     <td align="center">       <a href="https://t.me/obsidiantut">         <img src="https://img.shields.io/badge/Telegram-%40obsidiantut-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">       </a>     </td>     <td align="center">       <a href="https://ble.ir/obsidiantut">         <img src="https://img.shields.io/badge/Bale-%40obsidiantut-22A06B?style=for-the-badge" alt="Bale">       </a>     </td>     <td align="center">       <a href="https://youtube.com/@obsidiantut">         <img src="https://img.shields.io/badge/YouTube-%40obsidiantut-FF0033?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">       </a>     </td>   </tr>   <tr>     <td align="center"><b>تلگرام</b><br>@obsidiantut</td>     <td align="center"><b>بله</b><br>@obsidiantut</td>     <td align="center"><b>یوتیوب</b><br>@obsidiantut</td>   </tr> </table>
-
----
-
-<p align="center">   ساخته شده با ❤️ برای جامعهٔ Obsidian فارسی </p>
-
-</details>
+<p align="center">
+Made with ❤️ for the Obsidian community
+</p>
