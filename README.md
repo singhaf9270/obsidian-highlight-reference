@@ -1,4 +1,4 @@
-# Highlight Reference 
+# Highlight Reference
 
 > **Turn any `==highlight==` into an instant knowledge lookup.**
 >
@@ -41,7 +41,7 @@ Highlight Reference works with **your existing `==highlight==` syntax**, reads r
 - 🔬 **Researchers** — annotate technical terms with definitions
 - ✍️ **Writers** — keep a personal style guide linked to every note
 - 🧠 **Students** — build a study reference that grows with your notes
-- 🗂️ **PKM enthusiasts** — connect notes to central glossaries without duplication
+- 🗂️ **PKM enthusiasts** — connect notes to central references without duplication
 
 ---
 
@@ -54,33 +54,74 @@ Highlight Reference works with **your existing `==highlight==` syntax**, reads r
 | ✏️ **Inline editing** | Edit existing entries from the tooltip or via `Shift+Click` |
 | 📂 **Open in reference** | Jump to the exact line in your reference note |
 | 📌 **Inline meaning** | Show the meaning as a small label (reading view only) |
-| 🗂️ **Multiple references** | Each note can link to several reference files |
+| 🗂️ **Multiple references** | Link your note to several reference files via frontmatter keys |
 | 🌐 **Bilingual UI** | Persian (فارسی) and English |
 | 📝 **Markdown support** | Meanings can include links, lists, bold, etc. |
-| 🔁 **Spaced Repetition ready** | Highlights work seamlessly with SR flashcards |
+| 🔁 **Spaced Repetition friendly** | Use the same reference note for flashcards |
 | ⚡ **Smart caching** | Reference files are cached and only re-read on change |
 
 ---
 
 ## 🔁 Works with Spaced Repetition
 
-This plugin is **designed to cooperate with the [Spaced Repetition](https://github.com/st3v3nmw/obsidian-spaced-repetition) plugin**.
+This plugin cooperates with the **[Spaced Repetition](https://github.com/st3v3nmw/obsidian-spaced-repetition)** plugin — meaning you can use the **same reference note** to review your flashcards.
 
-### The workflow
+### How it works
 
-1. You highlight a term in your note: `==photosynthesis==`
-2. Highlight Reference shows its meaning on hover (from your reference note).
-3. Spaced Repetition picks up the same highlight as a **flashcard** for review.
-4. During review, you see the term and can recall its meaning — the same meaning stored in your reference.
+Say your reference note (`My Reference.md`) has this line:
 
-### Why this matters
+```markdown
+==photosynthesis== :: The process by which plants convert light into energy. #flashcard
+```
 
-- **No duplication** — you write the definition once, in your reference note.
-- **Consistent** — every flashcard uses the same definition.
-- **Review-friendly** — the highlight syntax is already SR-compatible.
-- **Zero configuration** — both plugins read `==...==` natively.
+Notice the **`#flashcard` hashtag** at the end. Now:
 
-> 💡 **Tip:** Combine Highlight Reference with Spaced Repetition to turn your notes into a **self-quizzing knowledge base**.
+- **Highlight Reference** shows the description of `photosynthesis` on hover, inside your notes.
+- **Spaced Repetition** picks up that same line as a **flashcard** and quizzes you during review sessions.
+
+### Why it's useful
+
+- **Write once, use twice** — the definition lives in your reference note, and serves both daily reading (via hover) and review (via SR).
+- **No duplication** — you don't need to copy vocabulary into a separate SR file.
+- **Unified review** — all terms from your reference show up in one review session, not scattered around.
+- **Zero configuration** — just add the SR hashtag at the end of the line.
+
+### SR hashtag types
+
+Depending on your Spaced Repetition settings, you can use these hashtags:
+
+| Hashtag | Purpose |
+|---------|---------|
+| `#flashcard` | Basic flashcard (question/answer) |
+| `#sr` | Default SR style |
+| `#review` | For general review |
+
+> 💡 **Tip:** The hashtag must match your Spaced Repetition settings. If unsure, check the **Flashcard tags** section in SR settings.
+
+### A complete example
+
+Reference note (`Biology Reference.md`):
+
+```markdown
+==mitochondria== :: The powerhouse of the cell that produces ATP. #flashcard
+==ribosome== :: The site of protein synthesis. #flashcard
+==nucleus== :: The control center of the cell that holds DNA. #flashcard
+```
+
+Your study note (`Chapter 3 - The Cell.md`):
+
+```markdown
+---
+reference: "Biology Reference"
+---
+
+The cell is made of various components. ==mitochondria== is responsible
+for producing energy, and ==ribosome==s build proteins.
+```
+
+Now:
+- **On hover**, you see the definition of `mitochondria`.
+- **With Spaced Repetition**, you review all three terms from the same reference note.
 
 ---
 
@@ -144,18 +185,6 @@ In the **frontmatter** of your note (between the two `---` lines), add:
 reference: "My Reference"
 ---
 ```
-
-Multiple references:
-
-```yaml
----
-reference:
-  - "Main Reference"
-  - "Specialized Reference"
----
-```
-
-**Accepted keys:** `reference`, `dictionary`, `glossary`, `vocab`, `lexicon`, `source`, `مرجع`, `منبع`, `واژه‌نامه`, `لغتنامه`, `واژگان`
 
 ### Step 3 — Highlight and use
 
@@ -230,16 +259,86 @@ term :: meaning
 ==term== its meaning here
 ```
 
-### Frontmatter resolution
+### Frontmatter keys
 
-The plugin reads the reference path from frontmatter using this priority:
+The plugin reads the reference path from your note's **frontmatter**. In other words, at the top of your file, between two `---` lines, you write:
 
-1. The custom key you set in settings (default: `reference`)
-2. A list of built-in aliases:
-   - English: `reference`, `dictionary`, `glossary`, `vocab`, `lexicon`, `source`
-   - Persian: `مرجع`, `منبع`, `واژه‌نامه`, `لغتنامه`, `واژگان`
+```yaml
+---
+reference: "My Reference"
+---
+```
 
-Both single strings and arrays are supported. Paths can be plain text, `[[wikilinks]]`, or quoted strings.
+**But why multiple keys?** Because we want old notes to keep working, even if they used a different key. For example, if you wrote `dictionary: "..."` in one note and `glossary: "..."` in another, both are recognized.
+
+The plugin checks these keys in order:
+
+**Primary key (from settings):**
+- Whatever key you set in the plugin settings (default: `reference`)
+
+**Built-in English keys:**
+- `reference`
+- `dictionary`
+- `glossary`
+- `vocab`
+- `lexicon`
+- `source`
+
+**Built-in Persian keys:**
+- `مرجع`
+- `منبع`
+- `واژه‌نامه`
+- `لغتنامه`
+- `واژگان`
+
+### Practical examples
+
+**Simplest form:**
+
+```yaml
+---
+reference: "Glossary"
+---
+```
+
+**With a wikilink:**
+
+```yaml
+---
+reference: "[[Main Glossary]]"
+---
+```
+
+**With a Persian key:**
+
+```yaml
+---
+مرجع: "Medical Terms"
+---
+```
+
+**With a full path:**
+
+```yaml
+---
+reference: "Folder/Subfolder/Glossary.md"
+---
+```
+
+### What if you use multiple keys?
+
+The plugin reads **all of them** and merges the results. So if you write:
+
+```yaml
+---
+reference: "Main Reference"
+glossary: "Specialized Reference"
+---
+```
+
+Both notes are loaded as references. (If a term exists in both, the first one wins.)
+
+> 💡 **Tip:** Want your note linked to **multiple references**? Just use different keys (e.g. both `reference` and `glossary`). The plugin reads them all and merges.
 
 ### Term normalization
 
@@ -295,18 +394,6 @@ The ==mitochondria== is the powerhouse of the cell.
 - Highlight Reference shows the definition of `mitochondria` on hover.
 - Spaced Repetition treats `==mitochondria==` as a flashcard.
 - Your reference note is the single source of truth for the definition.
-
-### Use multiple references for different topics
-
-```yaml
----
-reference:
-  - "Biology Terms"
-  - "Chemistry Terms"
----
-```
-
-Now the same note can pull definitions from both.
 
 ### Inline meanings for review notes
 
@@ -444,7 +531,7 @@ More Obsidian tutorials and content on our channels:
 - 🔬 **پژوهشگرها** — اصطلاحات تخصصی رو با تعریفشون حاشیه‌نویسی کن
 - ✍️ **نویسنده‌ها** — یه راهنمای سبک شخصی بساز که به هر یادداشت وصل باشه
 - 🧠 **دانشجوها** — یه مرجع مطالعه بساز که با یادداشت‌هات رشد کنه
-- 🗂️ **علاقه‌مندان PKM** — یادداشت‌ها رو به واژه‌نامه‌های مرکزی وصل کن، بدون تکرار
+- 🗂️ **علاقه‌مندان PKM** — یادداشت‌ها رو به مراجع مرکزی وصل کن، بدون تکرار
 
 ---
 
@@ -457,33 +544,74 @@ More Obsidian tutorials and content on our channels:
 | ✏️ **ویرایش فوری** | از دکمهٔ ویرایش توی تولتیپ یا `Shift+کلیک` |
 | 📂 **باز کردن در مرجع** | با یه کلیک برو سر خط مربوطه توی یادداشت مرجع |
 | 📌 **توضیح درون‌خطی** | توضیح به‌صورت برچسب کوچک بعد از هایلایت (حالت خواندن) |
-| 🗂️ **چند مرجع** | هر یادداشت می‌تونه چند مرجع مختلف داشته باشه |
+| 🗂️ **چند مرجع** | یادداشتت رو با کلیدهای مختلف فرانت‌متر به چند مرجع وصل کن |
 | 🌐 **دو زبانه** | رابط کاربری فارسی و انگلیسی |
 | 📝 **پشتیبانی از Markdown** | توضیح‌ها می‌تونن لینک، لیست، بولد و هر چیز دیگه داشته باشن |
-| 🔁 **آماده برای Spaced Repetition** | هایلایت‌ها با فلش‌کارت‌های SR هماهنگ کار می‌کنن |
+| 🔁 **سازگار با Spaced Repetition** | از همون یادداشت مرجع برای فلش‌کارت استفاده کن |
 | ⚡ **کش هوشمند** | فایل‌های مرجع کش می‌شن و فقط با تغییر دوباره خونده می‌شن |
 
 ---
 
 ## 🔁 هماهنگی با Spaced Repetition
 
-این پلاگین **برای همکاری با پلاگین [Spaced Repetition](https://github.com/st3v3nmw/obsidian-spaced-repetition) طراحی شده**.
+این پلاگین با **[Spaced Repetition](https://github.com/st3v3nmw/obsidian-spaced-repetition)** هماهنگه — یعنی می‌تونی از **همون یادداشت مرجع** برای مرور فلش‌کارت‌هات استفاده کنی.
 
-### جریان کار
+### چطور کار می‌کنه؟
 
-1. یه اصطلاح رو توی یادداشتت هایلایت می‌کنی: `==فتوسنتز==`
-2. هایلایت رفرنس با هاور معنی‌ش رو از یادداشت مرجع نشون می‌ده.
-3. Spaced Repetition همون هایلایت رو به‌عنوان **فلش‌کارت** برای مرور برمی‌داره.
-4. موقع مرور، اصطلاح رو می‌بینی و معنی‌ش رو به یاد میاری — همون معنی‌ای که توی مرجعت ذخیره شده.
+فرض کن توی یادداشت مرجعت (`مرجع من.md`) این خط رو داری:
 
-### چرا مهمه؟
+```markdown
+==فتوسنتز== :: فرایندی که گیاهان نور رو به انرژی تبدیل می‌کنن. #flashcard
+```
 
-- **بدون تکرار** — تعریف رو یه بار می‌نویسی، توی یادداشت مرجع.
-- **یکدست** — هر فلش‌کارت از همون تعریف استفاده می‌کنه.
-- **مناسب مرور** — سینتکس هایلایت از قبل با SR سازگاره.
-- **بدون تنظیمات** — هر دو پلاگین به‌صورت پیش‌فرض `==...==` رو می‌خونن.
+نکته اینجاست که **هشتگ `#flashcard`** رو ته خط گذاشتی. حالا:
 
-> 💡 **نکته:** هایلایت رفرنس رو با Spaced Repetition ترکیب کن تا یادداشت‌هات رو به یه **پایگاه دانش خودآزمون** تبدیل کنی.
+- **هایلایت رفرنس** با هاور، توضیح `فتوسنتز` رو توی یادداشت‌هات نشون می‌ده.
+- **Spaced Repetition** همون خط رو به‌عنوان **فلش‌کارت** برمی‌داره و توی جلسهٔ مرور ازت می‌پرسه.
+
+### مزیتش چیه؟
+
+- **یه بار بنویس، دو جا استفاده کن** — تعریف رو توی یادداشت مرجع می‌نویسی، هم برای مطالعهٔ روزانه (با هاور) استفاده می‌شه، هم برای مرور (با SR).
+- **بدون تکرار** — لازم نیست لغات رو دوباره توی یه فایل جدا برای SR بنویسی.
+- **مرور یکپارچه** — همهٔ لغات مرجعت توی یه جلسهٔ مرور میان، نه پراکنده.
+- **صفر تنظیمات** — فقط کافیه هشتگ SR رو ته خط مرجع بذاری.
+
+### انواع هشتگ‌های SR
+
+بسته به تنظیمات Spaced Repetition، می‌تونی از این هشتگ‌ها استفاده کنی:
+
+| هشتگ | کاربرد |
+|------|--------|
+| `#flashcard` | فلش‌کارت پایه (سؤال/جواب) |
+| `#sr` | سبک پیش‌فرض SR |
+| `#review` | برای مرور عمومی |
+
+> 💡 **نکته:** نوع هشتگ باید با تنظیمات Spaced Repetition تو هماهنگ باشه. اگه مطمئن نیستی، توی تنظیمات SR بخش **Flashcard tags** رو ببین.
+
+### یک مثال کامل
+
+یادداشت مرجع (`مرجع زیست.md`):
+
+```markdown
+==میتوکندری== :: نیروگاه سلول که ATP تولید می‌کنه. #flashcard
+==ریبوزوم== :: محل سنتز پروتئین. #flashcard
+==هسته== :: مرکز کنترل سلول که DNA رو نگه می‌داره. #flashcard
+```
+
+یادداشت مطالعه‌ات (`فصل ۳ - سلول.md`):
+
+```markdown
+---
+reference: "مرجع زیست"
+---
+
+سلول از اجزای مختلفی ساخته شده. ==میتوکندری== مسئول تولید انرژیه
+و ==ریبوزوم== ها پروتئین می‌سازن.
+```
+
+حالا:
+- **با هاور** روی `میتوکندری` توضیحش رو می‌بینی.
+- **با Spaced Repetition** روی همون یادداشت مرجع، هر سه لغت رو مرور می‌کنی.
 
 ---
 
@@ -550,18 +678,6 @@ More Obsidian tutorials and content on our channels:
 reference: "مرجع من"
 ---
 ```
-
-اگه می‌خوای چند مرجع داشته باشی:
-
-```yaml
----
-reference:
-  - "مرجع اصلی"
-  - "مرجع تخصصی"
----
-```
-
-**کلیدهای پذیرفته‌شده:** `reference`، `dictionary`، `glossary`، `vocab`، `lexicon`، `source`، `مرجع`، `منبع`، `واژه‌نامه`، `لغتنامه`، `واژگان`
 
 ### قدم ۳ — هایلایت کن و استفاده کن
 
@@ -636,16 +752,86 @@ reference:
 ==عنوان== توضیحش اینجا
 ```
 
-### خواندن از فرانت‌متر
+### کلیدهای فرانت‌متر
 
-پلاگین مسیر مرجع رو با این اولویت از فرانت‌متر می‌خونه:
+پلاگین مسیر یادداشت مرجع رو از **فرانت‌متر** یادداشتت می‌خونه. یعنی توی بالای فایل، بین دو خط `---`، می‌نویسی:
 
-1. کلید سفارشی که توی تنظیمات تعیین کردی (پیش‌فرض: `reference`)
-2. لیست کلیدهای پیش‌فرض:
-   - انگلیسی: `reference`، `dictionary`، `glossary`، `vocab`، `lexicon`، `source`
-   - فارسی: `مرجع`، `منبع`، `واژه‌نامه`، `لغتنامه`، `واژگان`
+```yaml
+---
+reference: "مرجع من"
+---
+```
 
-هم رشتهٔ تکی و هم آرایه پشتیبانی می‌شه. مسیرها می‌تونن متن ساده، `[[ویکی‌لینک]]`، یا رشتهٔ کوتیشن‌دار باشن.
+**ولی چرا چند تا کلید؟** چون می‌خوایم اگه یادداشت‌های قدیمی داری که با کلید دیگه‌ای نوشتی، پلاگین بازم کار کنه. مثلاً اگه یه جا نوشتی `dictionary: "..."` و یه جای دیگه `glossary: "..."`، هر دو شناسایی می‌شن.
+
+پلاگین این کلیدها رو به ترتیب چک می‌کنه:
+
+**کلید اول (تنظیمات):**
+- هر کلیدی که توی تنظیمات پلاگین تعیین کنی (پیش‌فرض: `reference`)
+
+**کلیدهای پیش‌فرض انگلیسی:**
+- `reference`
+- `dictionary`
+- `glossary`
+- `vocab`
+- `lexicon`
+- `source`
+
+**کلیدهای پیش‌فرض فارسی:**
+- `مرجع`
+- `منبع`
+- `واژه‌نامه`
+- `لغتنامه`
+- `واژگان`
+
+### مثال‌های کاربردی
+
+**ساده‌ترین حالت:**
+
+```yaml
+---
+reference: "واژه‌نامه"
+---
+```
+
+**با ویکی‌لینک:**
+
+```yaml
+---
+reference: "[[واژه‌نامه اصلی]]"
+---
+```
+
+**با کلید فارسی:**
+
+```yaml
+---
+مرجع: "اصطلاحات پزشکی"
+---
+```
+
+**با مسیر کامل:**
+
+```yaml
+---
+reference: "پوشه/زیرپوشه/واژه‌نامه.md"
+---
+```
+
+### اگه چند کلید داشته باشی چی می‌شه؟
+
+پلاگین **همه‌شون** رو می‌خونه و نتایج رو ادغام می‌کنه. یعنی اگه اینطوری بنویسی:
+
+```yaml
+---
+reference: "مرجع اصلی"
+glossary: "مرجع تخصصی"
+---
+```
+
+هر دو یادداشت به‌عنوان مرجع بارگذاری می‌شن. (اگه یه عنوان توی هر دو باشه، اولی اولویت داره.)
+
+> 💡 **نکته:** اگه می‌خوای یادداشتت به **چند مرجع** وصل بشه، از کلیدهای مختلف استفاده کن (مثلاً هم `reference` هم `glossary`). پلاگین همه رو می‌خونه و ادغام می‌کنه.
 
 ### نرمال‌سازی واژه‌ها
 
@@ -701,18 +887,6 @@ reference:
 - هایلایت رفرنس با هاور تعریف `میتوکندری` رو نشون می‌ده.
 - Spaced Repetition همون `==میتوکندری==` رو به‌عنوان فلش‌کارت برمی‌داره.
 - یادداشت مرجعت تنها منبع حقیقت برای تعریفه.
-
-### چند مرجع برای موضوعات مختلف
-
-```yaml
----
-reference:
-  - "اصطلاحات زیست"
-  - "اصطلاحات شیمی"
----
-```
-
-حالا یه یادداشت می‌تونه از هر دو مرجع تعریف بگیره.
 
 ### توضیح درون‌خطی برای یادداشت‌های مرور
 
