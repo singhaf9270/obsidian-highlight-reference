@@ -1,299 +1,275 @@
 # Highlight Reference
 
 > **Turn any `==highlight==` into an instant knowledge lookup.**
->
-> **هر `==هایلایت==` رو به یه مرجع دانش لحظه‌ای تبدیل کن.**
+> **هر `==هایلایت==` را به یک مرجع دانش لحظه‌ای تبدیل کن.**
 
-[![Version](https://img.shields.io/badge/version-1.0.2-229ED9?style=flat-square)](https://github.com/singhaf9270/obsidian-highlight-reference/releases)
-[![License](https://img.shields.io/badge/license-MIT-22A06B?style=flat-square)](LICENSE)
-[![Obsidian](https://img.shields.io/badge/Obsidian-1.0.0%2B-7C3AED?style=flat-square&logo=obsidian)](https://obsidian.md)
-[![Spaced Repetition](https://img.shields.io/badge/Works%20with-Spaced%20Repetition-FF6B6B?style=flat-square)](https://github.com/st3v3nmw/obsidian-spaced-repetition)
+
+
+\
 
 ---
 
-<details open>
-<summary><b>🇬🇧 English</b></summary>
+<details open> <summary><strong>🇬🇧 English</strong></summary>
 
-## 💡 What is Highlight Reference?
+## What is Highlight Reference?
 
-**Highlight Reference** is an Obsidian plugin that turns every `==highlighted==` word in your notes into a **live reference link**. Hover over it, and its description appears instantly — no need to leave your note, no need to open a separate file.
+**Highlight Reference** turns Obsidian's built-in `==highlight==` syntax into an interactive knowledge reference.
 
-Think of it as a **personal dictionary that lives inside your notes**. Whether you're reading a technical article, studying a new language, or reviewing your own notes, every highlight becomes a doorway to its definition.
+Hover over a highlighted word and instantly see its meaning — without opening another note or leaving your current workflow.
 
-### The idea in one line
+It works like a **personal dictionary, glossary, or knowledge base that lives inside your notes.**
 
-> **Write `==word==` → see its meaning on hover → add or edit it on the fly.**
+### The idea
 
-### Why it's different
-
-Most glossary plugins force you to either:
-- Open a separate panel
-- Use a specific syntax that breaks your flow
-- Store definitions in a rigid format
-
-Highlight Reference works with **your existing `==highlight==` syntax**, reads references from **frontmatter**, and supports **multiple reference notes per file**. It stays out of your way until you need it.
-
----
-
-## 🎯 Who is this for?
-
-- 📚 **Language learners** — highlight new vocabulary and see translations instantly
-- 🔬 **Researchers** — annotate technical terms with definitions
-- ✍️ **Writers** — keep a personal style guide linked to every note
-- 🧠 **Students** — build a study reference that grows with your notes
-- 🗂️ **PKM enthusiasts** — connect notes to central references without duplication
-
----
-
-## ✨ Features at a glance
-
-| Feature | Description |
-|---------|-------------|
-| 🖱️ **Hover to see meaning** | Move your mouse over a highlight; a tooltip appears |
-| ➕ **Quick add** | If a word isn't in the reference, add it with one click |
-| ✏️ **Inline editing** | Edit existing entries from the tooltip or via `Shift+Click` |
-| 📂 **Open in reference** | Jump to the exact line in your reference note |
-| 📌 **Inline meaning** | Show the meaning as a small label (reading view only) |
-| 🗂️ **Multiple references** | Link your note to several reference files via frontmatter keys |
-| 🌐 **Bilingual UI** | Persian (فارسی) and English |
-| 📝 **Markdown support** | Meanings can include links, lists, bold, etc. |
-| 🔁 **Spaced Repetition friendly** | Use the same reference note for flashcards |
-| ⚡ **Smart caching** | Reference files are cached and only re-read on change |
-
----
-
-## 🔁 Works with Spaced Repetition
-
-This plugin cooperates with the **[Spaced Repetition](https://github.com/st3v3nmw/obsidian-spaced-repetition)** plugin — meaning you can use the **same reference note** to review your flashcards.
-
-### How it works
-
-Say your reference note (`My Reference.md`) has this line:
-
-```markdown
-==photosynthesis== :: The process by which plants convert light into energy. #flashcard
+```text
+==word== → hover → see the meaning
+                     ↓
+              edit or add it
 ```
 
-Notice the **`#flashcard` hashtag** at the end. Now:
+### Why Highlight Reference?
 
-- **Highlight Reference** shows the description of `photosynthesis` on hover, inside your notes.
-- **Spaced Repetition** picks up that same line as a **flashcard** and quizzes you during review sessions.
+Instead of opening a separate glossary, using a custom syntax, or duplicating definitions across notes, Highlight Reference lets you keep your existing Markdown workflow.
 
-### Why it's useful
+* Uses Obsidian's native `==highlight==` syntax
+* Definitions are stored in regular Markdown notes
+* References are connected through frontmatter
+* Multiple reference notes are supported
+* Definitions can contain Markdown
+* Missing terms can be added directly from the tooltip
 
-- **Write once, use twice** — the definition lives in your reference note, and serves both daily reading (via hover) and review (via SR).
-- **No duplication** — you don't need to copy vocabulary into a separate SR file.
-- **Unified review** — all terms from your reference show up in one review session, not scattered around.
-- **Zero configuration** — just add the SR hashtag at the end of the line.
+---
 
-### SR hashtag types
+## Who is it for?
 
-Depending on your Spaced Repetition settings, you can use these hashtags:
+**Language learners**
+Highlight vocabulary and instantly see translations or definitions.
 
-| Hashtag | Purpose |
-|---------|---------|
-| `#flashcard` | Basic flashcard (question/answer) |
-| `#sr` | Default SR style |
-| `#review` | For general review |
+**Researchers**
+Keep technical terms and concepts connected to your notes.
 
-> 💡 **Tip:** The hashtag must match your Spaced Repetition settings. If unsure, check the **Flashcard tags** section in SR settings.
+**Students**
+Build a personal study reference while taking notes.
 
-### A complete example
+**Writers**
+Create a personal terminology or style reference.
 
-Reference note (`Biology Reference.md`):
+**PKM users**
+Connect notes to central reference files without duplicating information.
 
-```markdown
-==mitochondria== :: The powerhouse of the cell that produces ATP. #flashcard
-==ribosome== :: The site of protein synthesis. #flashcard
-==nucleus== :: The control center of the cell that holds DNA. #flashcard
+---
+
+## Features
+
+| Feature                 | Description                                                |
+| ----------------------- | ---------------------------------------------------------- |
+| 🖱️ Hover lookup        | See a term's meaning instantly                             |
+| ➕ Quick add             | Add missing terms directly from the tooltip                |
+| ✏️ Inline editing       | Edit existing meanings without leaving your note           |
+| 📂 Open reference       | Jump directly to the matching line                         |
+| 📌 Inline meanings      | Display definitions next to highlights in Reading View     |
+| 🗂️ Multiple references | Connect one note to multiple reference files               |
+| 🌐 Bilingual UI         | English and Persian interface                              |
+| 📝 Markdown support     | Definitions can contain links, lists, formatting, and more |
+| 🔁 Spaced Repetition    | Use reference entries as flashcards                        |
+| ⚡ Smart caching         | Reference files are cached and refreshed when changed      |
+| 📱 Mobile support       | Designed to work on desktop and mobile                     |
+
+---
+
+## Quick Start
+
+### 1. Create a reference note
+
+Create a normal Markdown note such as:
+
+```text
+My Reference.md
 ```
 
-Your study note (`Chapter 3 - The Cell.md`):
+Add one entry per line:
+
+```markdown
+term :: meaning
+```
+
+For example:
+
+```markdown
+==highlight== :: Text wrapped in == that becomes highlighted.
+
+==frontmatter== :: Metadata stored at the top of an Obsidian note.
+```
+
+You can also write:
+
+```markdown
+==term== Meaning of the term.
+```
+
+---
+
+### 2. Connect the reference to your note
+
+Add the reference to your note's frontmatter:
+
+```yaml
+---
+reference: "My Reference"
+---
+```
+
+You can also use a wikilink:
+
+```yaml
+---
+reference: "[[My Reference]]"
+---
+```
+
+---
+
+### 3. Highlight a term
+
+Write:
+
+```markdown
+This is a ==highlight== example.
+```
+
+Now hover over `highlight`.
+
+The definition appears instantly.
+
+---
+
+## Example
+
+### Reference note
+
+```markdown
+==photosynthesis== :: The process by which plants convert light energy into chemical energy.
+
+==chloroplast== :: The organelle where photosynthesis takes place.
+
+==glucose== :: A simple sugar produced during photosynthesis.
+```
+
+### Study note
 
 ```markdown
 ---
 reference: "Biology Reference"
 ---
 
-The cell is made of various components. ==mitochondria== is responsible
-for producing energy, and ==ribosome==s build proteins.
+Plants use ==photosynthesis== to produce ==glucose==.
+The process takes place inside the ==chloroplast==.
 ```
 
-Now:
-- **On hover**, you see the definition of `mitochondria`.
-- **With Spaced Repetition**, you review all three terms from the same reference note.
+Hover over any highlighted term to see its definition.
 
 ---
 
-## 🚀 Installation
+## Interactions
 
-### From the official Obsidian marketplace
+| Action                       | Result                                           |
+| ---------------------------- | ------------------------------------------------ |
+| **Hover**                    | Show the definition                              |
+| **Click**                    | Show the definition; if missing, offer to add it |
+| **Ctrl/Cmd + Click**         | Open the matching reference entry                |
+| **Shift + Click**            | Edit the existing definition                     |
+| **Ctrl/Cmd + Shift + Click** | Open or add the entry                            |
+| **Mobile tap**               | Show the tooltip                                 |
 
-1. Open Obsidian.
-2. Go to **Settings → Community plugins**.
-3. Click **Browse** and search for **Highlight Reference**.
-4. Click **Install**, then **Enable**.
-
-### Manual installation
-
-1. Download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/singhaf9270/obsidian-highlight-reference/releases/latest).
-2. Create the folder `.obsidian/plugins/highlight-reference/` in your vault.
-3. Copy the three files into it.
-4. Restart Obsidian.
-5. Enable the plugin from **Settings → Community plugins**.
-
-### Using BRAT (for beta versions)
-
-1. Install the **BRAT** plugin.
-2. In BRAT settings, click **Add Beta plugin**.
-3. Enter: `https://github.com/singhaf9270/obsidian-highlight-reference`
-4. Click **Add Plugin**.
+On mobile, editing and opening the reference can be done using the buttons inside the tooltip.
 
 ---
 
-## 📖 Quick start (2 minutes)
+## Command Palette
 
-### Step 1 — Create a reference note
+Open the Command Palette with `Ctrl/Cmd + P`.
 
-Create a new note (e.g. `My Reference.md`) and write one entry per line:
+Available commands include:
 
-```markdown
-term :: meaning
+* **Reload this note's reference**
+* **Choose reference note for this note**
+* **Add/Edit highlighted word at cursor**
+
+These commands are useful when you want to manage references without using the mouse.
+
+---
+
+## Frontmatter References
+
+The default frontmatter key is:
+
+```yaml
+reference: "My Reference"
 ```
 
-Real example:
+However, Highlight Reference also recognizes several common keys.
 
-```markdown
-==highlight== :: Text wrapped in `==` that becomes bold.
-==frontmatter== :: The section at the top of a note, between two `---` lines.
-  Continuation of the meaning goes on the next line with indentation.
-  You can continue on multiple lines.
+### English keys
+
+```text
+reference
+dictionary
+glossary
+vocab
+lexicon
+source
 ```
 
-Or use the highlight syntax directly:
+### Persian keys
 
-```markdown
-==term== meaning of the term
+```text
+مرجع
+منبع
+واژه‌نامه
+لغتنامه
+واژگان
 ```
 
-### Step 2 — Link your note to the reference
+The primary key can also be changed in plugin settings.
 
-In the **frontmatter** of your note (between the two `---` lines), add:
+---
+
+## Multiple References
+
+A note can use more than one reference.
+
+For example:
 
 ```yaml
 ---
-reference: "My Reference"
+reference: "Main Reference"
+glossary: "Technical Terms"
 ---
 ```
 
-### Step 3 — Highlight and use
+Both reference files are loaded and merged.
 
-In your note, wrap any word with `==`:
+If the same term exists in multiple references, the first matching entry takes priority.
 
-```markdown
-This is a ==highlight== example.
+This makes it possible to combine:
+
+```text
+General Dictionary
+        +
+Technical Glossary
+        +
+Personal Vocabulary
 ```
 
-Now hover over it 👆
+without copying the definitions into your study note.
 
 ---
 
-## 🖱️ Interactions
+## Reference Paths
 
-| Action | Result |
-|--------|--------|
-| **Hover** | Show the meaning tooltip |
-| **Click** | Existing word: tooltip · Missing word: add dialog |
-| **Ctrl + Click** | Open the entry's line in the reference note |
-| **Shift + Click** | Edit an existing meaning |
-| **Ctrl + Shift + Click** | Open or add, depending on whether the word exists |
+All of these formats are supported:
 
-> 💡 **On mobile:** tap for tooltip, use the buttons inside the tooltip for edit/open.
-
----
-
-## ⚡ Command palette
-
-Open with `Ctrl/Cmd + P`:
-
-- **Reload this note's reference** — if you changed the reference file manually.
-- **Choose reference note for this note** — pick from a fuzzy search dialog.
-- **Add/Edit highlighted word at cursor** — no clicking needed.
-
----
-
-## ⚙️ Settings
-
-| Setting | Description | Default |
-|---------|-------------|---------|
-| **Language** | Persian or English | Persian |
-| **Frontmatter key** | Default key for the reference path | `reference` |
-| **Show meaning on hover** | Enable/disable the tooltip | On |
-| **Hover delay** | Time before showing the tooltip (0–1000 ms) | 200 ms |
-| **"Not found" message** | Show a tooltip with an add button for missing words | On |
-| **Inline meaning** | Show meaning as a small label (reading view only) | Off |
-
----
-
-## 🧠 Technical details
-
-### Reference format
-
-Each line follows this pattern:
-
-```
-term :: meaning
-```
-
-**Continuation lines** must be indented (2+ spaces) or start with `>`:
-
-```markdown
-==photosynthesis== :: The process by which plants convert light into energy.
-  Occurs in the chloroplasts.
-  Produces oxygen as a byproduct.
-```
-
-**Direct highlight syntax** is also supported:
-
-```markdown
-==term== its meaning here
-```
-
-### Frontmatter keys
-
-The plugin reads the reference path from your note's **frontmatter**. In other words, at the top of your file, between two `---` lines, you write:
-
-```yaml
----
-reference: "My Reference"
----
-```
-
-**But why multiple keys?** Because we want old notes to keep working, even if they used a different key. For example, if you wrote `dictionary: "..."` in one note and `glossary: "..."` in another, both are recognized.
-
-The plugin checks these keys in order:
-
-**Primary key (from settings):**
-- Whatever key you set in the plugin settings (default: `reference`)
-
-**Built-in English keys:**
-- `reference`
-- `dictionary`
-- `glossary`
-- `vocab`
-- `lexicon`
-- `source`
-
-**Built-in Persian keys:**
-- `مرجع`
-- `منبع`
-- `واژه‌نامه`
-- `لغتنامه`
-- `واژگان`
-
-### Practical examples
-
-**Simplest form:**
+### Simple name
 
 ```yaml
 ---
@@ -301,7 +277,7 @@ reference: "Glossary"
 ---
 ```
 
-**With a wikilink:**
+### Wikilink
 
 ```yaml
 ---
@@ -309,15 +285,7 @@ reference: "[[Main Glossary]]"
 ---
 ```
 
-**With a Persian key:**
-
-```yaml
----
-مرجع: "Medical Terms"
----
-```
-
-**With a full path:**
+### Full path
 
 ```yaml
 ---
@@ -325,468 +293,542 @@ reference: "Folder/Subfolder/Glossary.md"
 ---
 ```
 
-### What if you use multiple keys?
-
-The plugin reads **all of them** and merges the results. So if you write:
-
-```yaml
 ---
-reference: "Main Reference"
-glossary: "Specialized Reference"
----
+
+## Multi-line Definitions
+
+Definitions can span multiple lines.
+
+Indent continuation lines with at least two spaces:
+
+```markdown
+==photosynthesis== :: The process by which plants convert light energy
+  into chemical energy.
+  It takes place mainly inside chloroplasts.
+  Oxygen is released as a byproduct.
 ```
 
-Both notes are loaded as references. (If a term exists in both, the first one wins.)
+You can also use blockquote continuation:
 
-> 💡 **Tip:** Want your note linked to **multiple references**? Just use different keys (e.g. both `reference` and `glossary`). The plugin reads them all and merges.
-
-### Term normalization
-
-To make matching robust, terms are normalized before comparison:
-
-| Transformation | Example |
-|----------------|---------|
-| Arabic `ي` → Persian `ی` | `كتاب` → `کتاب` |
-| Arabic `ك` → Persian `ک` | `كتاب` → `کتاب` |
-| `أ` `إ` `آ` → `ا` | `أحمد` → `احمد` |
-| `ة` → `ه` | `مدرسة` → `مدرسه` |
-| Remove ZWNJ and zero-width chars | `می‌رود` → `میرود` |
-| Collapse whitespace | `a   b` → `a b` |
-| Lowercase | `Word` → `word` |
-
-This means `كتاب` (Arabic kaf) and `کتاب` (Persian kaf) match the same entry.
-
-### Caching
-
-- Reference files are **cached by modification time**.
-- When a reference file changes, the cache is invalidated automatically.
-- Manual reload is available via the command palette.
-
-### Technical stack
-
-- **Obsidian API**: `Plugin`, `Modal`, `FuzzySuggestModal`, `MarkdownRenderer`
-- **Storage**: frontmatter via `metadataCache`
-- **Rendering**: `registerMarkdownPostProcessor` for inline meanings
-- **Mobile**: uses `visualViewport` API to avoid the keyboard overlap
-- **No external dependencies**
-
-### File structure
-
+```markdown
+==photosynthesis== :: The process by which plants convert light energy.
+> It takes place inside chloroplasts.
+> Oxygen is released as a byproduct.
 ```
+
+---
+
+## Markdown in Definitions
+
+Definitions are not limited to plain text.
+
+You can use Markdown such as:
+
+```markdown
+==Obsidian== :: A knowledge management application with support for
+**Markdown**, [[Wikilinks]], lists, and other Markdown features.
+```
+
+This allows reference entries to contain:
+
+* **Bold text**
+* *Italic text*
+* Links
+* Wikilinks
+* Lists
+* Other Markdown formatting
+
+---
+
+# Spaced Repetition
+
+Highlight Reference can work alongside the **Spaced Repetition** plugin.
+
+[Spaced Repetition on GitHub](https://github.com/st3v3nmw/obsidian-spaced-repetition?utm_source=chatgpt.com)
+
+This allows the same reference note to serve two purposes:
+
+```text
+Reference Note
+      │
+      ├── Highlight Reference
+      │      └── Hover definitions
+      │
+      └── Spaced Repetition
+             └── Flashcards
+```
+
+### Example
+
+Your reference note:
+
+```markdown
+==mitochondria== :: The organelle responsible for producing ATP. #flashcard
+
+==ribosome== :: The cellular structure responsible for protein synthesis. #flashcard
+
+==nucleus== :: The organelle that contains most of the cell's DNA. #flashcard
+```
+
+Your study note:
+
+```markdown
+---
+reference: "Biology Reference"
+---
+
+The ==mitochondria== produces energy, while ==ribosome==s
+are responsible for protein synthesis.
+```
+
+Highlight Reference displays the definitions when you hover.
+
+Spaced Repetition can use the same entries for review.
+
+### Why use both?
+
+**One source, multiple uses.**
+
+You write the definition once and reuse it for:
+
+* Reading
+* Note-taking
+* Reference lookup
+* Flashcards
+* Spaced repetition
+
+No need to maintain duplicate definitions.
+
+> **Note:** The exact flashcard hashtag depends on your Spaced Repetition settings.
+
+For example:
+
+```text
+#flashcard
+```
+
+or another tag configured in the plugin.
+
+Check the **Flashcard tags** section in Spaced Repetition settings for the tag used by your vault.
+
+---
+
+# Inline Meanings
+
+Highlight Reference can optionally display definitions directly beside highlighted terms in **Reading View**.
+
+For example:
+
+```text
+The mitochondria [the organelle responsible for producing ATP]
+```
+
+This can be useful for:
+
+* Study notes
+* Revision notes
+* Printed documents
+* PDF exports
+* Reading material
+
+Enable **Inline meaning** in the plugin settings.
+
+---
+
+# Term Normalization
+
+Highlight Reference normalizes terms before comparing them.
+
+This is especially useful for Persian and Arabic text.
+
+| Transformation               | Example            |
+| ---------------------------- | ------------------ |
+| Arabic `ي` → Persian `ی`     | `كتاب` → `کتاب`    |
+| Arabic `ك` → Persian `ک`     | `كتاب` → `کتاب`    |
+| `أ`, `إ`, `آ` → `ا`          | `أحمد` → `احمد`    |
+| `ة` → `ه`                    | `مدرسة` → `مدرسه`  |
+| Remove zero-width characters | `می‌رود` → `میرود` |
+| Collapse extra spaces        | `a   b` → `a b`    |
+| Lowercase English            | `Word` → `word`    |
+
+For example:
+
+```text
+كتاب
+کتاب
+```
+
+are treated as the same term after normalization.
+
+---
+
+# Smart Caching
+
+Reference files are cached to avoid unnecessary repeated parsing.
+
+The cache is associated with the file's modification state.
+
+When a reference file changes:
+
+1. The plugin detects the change.
+2. The old cache is invalidated.
+3. The reference is loaded again.
+
+You can also manually reload a reference from the Command Palette:
+
+```text
+Reload this note's reference
+```
+
+---
+
+# Settings
+
+| Setting                   | Description                        | Default     |
+| ------------------------- | ---------------------------------- | ----------- |
+| **Language**              | Plugin interface language          | Persian     |
+| **Frontmatter key**       | Primary reference key              | `reference` |
+| **Show meaning on hover** | Enable/disable tooltips            | On          |
+| **Hover delay**           | Delay before tooltip appears       | 200 ms      |
+| **Not found message**     | Show add option for missing terms  | On          |
+| **Inline meaning**        | Show definitions beside highlights | Off         |
+
+### Hover Delay
+
+The hover delay can be adjusted between:
+
+```text
+0–1000 ms
+```
+
+A shorter delay makes lookup feel more immediate.
+
+A longer delay can reduce accidental tooltips while moving the mouse across the page.
+
+---
+
+# Mobile Support
+
+Highlight Reference supports mobile Obsidian.
+
+The plugin uses the browser's `visualViewport` API when displaying input interfaces on mobile.
+
+This helps prevent dialogs from being hidden behind the on-screen keyboard.
+
+**Version 1.0.2** includes a fix for mobile dialogs appearing underneath the keyboard.
+
+---
+
+# Troubleshooting
+
+<details> <summary><strong>Definitions are not showing</strong></summary>
+
+Check the following:
+
+1. Make sure your note contains a valid reference in frontmatter.
+2. Make sure the reference note exists.
+3. Check that the path or note name is correct.
+4. Run **Reload this note's reference** from the Command Palette.
+5. Check the status bar for the number of loaded entries.
+
+</details>
+
+<details> <summary><strong>The tooltip does not appear</strong></summary>
+
+1. Make sure **Show meaning on hover** is enabled.
+2. Try lowering the **Hover delay**.
+3. Test the highlight in Reading View.
+4. Make sure the highlighted term exists in the connected reference.
+
+</details>
+
+<details> <summary><strong>Changes to the reference are not appearing</strong></summary>
+
+Save the reference note first.
+
+The plugin automatically detects changes and refreshes its cache.
+
+If the change still does not appear, use:
+
+```text
+Command Palette → Reload this note's reference
+```
+
+</details>
+
+<details> <summary><strong>Terms are matching unexpectedly</strong></summary>
+
+Highlight Reference normalizes terms before comparison.
+
+For example:
+
+```text
+كتاب
+کتاب
+```
+
+are considered equivalent.
+
+If exact matching is important, use more specific reference entries.
+
+</details>
+
+<details> <summary><strong>Mobile dialog appears behind the keyboard</strong></summary>
+
+Make sure you are using **Highlight Reference 1.0.2 or later**.
+
+The mobile viewport handling was improved in version 1.0.2.
+
+</details>
+
+---
+
+# Technical Details
+
+### Built with the Obsidian API
+
+Highlight Reference uses:
+
+```text
+Plugin
+Modal
+FuzzySuggestModal
+MarkdownRenderer
+metadataCache
+registerMarkdownPostProcessor
+```
+
+### Storage
+
+Reference paths are read from note frontmatter through Obsidian's metadata cache.
+
+### Rendering
+
+Inline meanings are rendered using:
+
+```text
+registerMarkdownPostProcessor
+```
+
+### Mobile
+
+Mobile positioning uses:
+
+```text
+visualViewport
+```
+
+### Dependencies
+
+Highlight Reference has:
+
+```text
+No external dependencies
+```
+
+---
+
+# File Structure
+
+```text
 .obsidian/plugins/highlight-reference/
-├── main.js        # Plugin logic
-├── manifest.json  # Plugin metadata
-└── styles.css     # UI styling
+├── main.js
+├── manifest.json
+└── styles.css
 ```
 
 ---
 
-## 💡 Pro tips
+# Installation
 
-### Combine with Spaced Repetition
+## Community Plugins
+
+1. Open **Obsidian**.
+2. Go to **Settings → Community plugins**.
+3. Click **Browse**.
+4. Search for **Highlight Reference**.
+5. Click **Install**.
+6. Click **Enable**.
+
+## Manual Installation
+
+Download the latest release:
+
+[Highlight Reference Releases](https://github.com/singhaf9270/obsidian-highlight-reference/releases?utm_source=chatgpt.com)
+
+Copy these files:
+
+```text
+main.js
+manifest.json
+styles.css
+```
+
+into:
+
+```text
+.obsidian/plugins/highlight-reference/
+```
+
+Then restart Obsidian and enable the plugin.
+
+## BRAT
+
+For development or beta versions:
+
+1. Install **BRAT**.
+2. Open BRAT settings.
+3. Select **Add Beta plugin**.
+4. Enter:
+
+```text
+https://github.com/singhaf9270/obsidian-highlight-reference
+```
+
+5. Click **Add Plugin**.
+
+---
+
+# Contributing
+
+Bug reports, ideas, suggestions, and pull requests are welcome.
+
+[Report an issue](https://github.com/singhaf9270/obsidian-highlight-reference/issues?utm_source=chatgpt.com)
+
+[View the source code on GitHub](https://github.com/singhaf9270/obsidian-highlight-reference?utm_source=chatgpt.com)
+
+If you find Highlight Reference useful, consider giving the repository a ⭐.
+
+---
+
+# License
+
+Released under the **MIT License**.
+
+See the `LICENSE` file for details.
+
+---
+
+# Follow
+
+Obsidian tutorials and Persian content:
+
+* [Telegram — @obsidiantut](https://t.me/obsidiantut?utm_source=chatgpt.com)
+* [Bale — @obsidiantut](https://ble.ir/obsidiantut?utm_source=chatgpt.com)
+* [YouTube — @obsidiantut](https://youtube.com/@obsidiantut?utm_source=chatgpt.com)
+
+</details>
+
+---
+
+<details open> <summary><strong>🇮🇷 فارسی</strong></summary>
+
+# هایلایت رفرنس چیست؟
+
+**Highlight Reference** سینتکس معمولی `==هایلایت==` در Obsidian را به یک **مرجع دانش تعاملی** تبدیل می‌کند.
+
+کافی است موس را روی یک کلمهٔ هایلایت‌شده ببری تا معنی یا توضیح آن بدون باز کردن فایل دیگری نمایش داده شود.
+
+در واقع می‌توانی آن را مثل یک:
+
+> **واژه‌نامه، فرهنگ اصطلاحات یا پایگاه دانش شخصی داخل یادداشت‌ها**
+
+در نظر بگیری.
+
+### ایدهٔ اصلی
+
+```text
+==کلمه== → هاور → نمایش معنی
+                    ↓
+              ویرایش یا افزودن
+```
+
+---
+
+## چرا Highlight Reference؟
+
+لازم نیست:
+
+* پنل جداگانه‌ای باز کنی.
+* سینتکس جدیدی یاد بگیری.
+* تعریف یک کلمه را در چند یادداشت تکرار کنی.
+
+پلاگین با همان قابلیت داخلی هایلایت Obsidian کار می‌کند:
 
 ```markdown
-# Biology
-
-The ==mitochondria== is the powerhouse of the cell.
+==کلمه==
 ```
 
-- Highlight Reference shows the definition of `mitochondria` on hover.
-- Spaced Repetition treats `==mitochondria==` as a flashcard.
-- Your reference note is the single source of truth for the definition.
-
-### Inline meanings for review notes
-
-Enable **Inline meaning** in settings, and every highlight will show its meaning directly in the reading view — perfect for printing or exporting to PDF.
+و تعریف‌ها را در فایل‌های Markdown معمولی نگه می‌دارد.
 
 ---
 
-## 🔧 Troubleshooting
+## مناسب چه کسانی است؟
 
-<details>
-<summary><b>Meanings aren't showing</b></summary>
+**زبان‌آموزها**
+برای دیدن سریع معنی و ترجمهٔ واژه‌های جدید.
 
-1. Make sure the frontmatter key `reference` (or one of the aliases) exists in your note.
-2. Verify the reference note exists in your vault and the path is correct.
-3. Run **Reload this note's reference** from the command palette.
-4. Check the status bar for the loaded entry count.
+**دانشجوها**
+برای ساخت یک مرجع شخصی در کنار یادداشت‌های درسی.
 
-</details>
+**پژوهشگران**
+برای ثبت اصطلاحات تخصصی و علمی.
 
-<details>
-<summary><b>Tooltip doesn't appear</b></summary>
+**نویسنده‌ها**
+برای ساخت واژه‌نامه یا راهنمای اصطلاحات شخصی.
 
-1. Check the **Show meaning on hover** setting.
-2. Lower the **Hover delay** if it's too high.
-3. Tooltips work best in reading view; some editor modes may behave differently.
-
-</details>
-
-<details>
-<summary><b>Meanings aren't updating</b></summary>
-
-1. Save the reference file; the plugin detects changes automatically.
-2. If not, run the reload command.
-
-</details>
-
-<details>
-<summary><b>Modal goes under the keyboard on mobile</b></summary>
-
-Fixed in version 1.0.2. Make sure you're on the latest version.
-
-</details>
-
-<details>
-<summary><b>Words match incorrectly</b></summary>
-
-Terms are normalized (see the Technical section). If you need exact matching, use a more specific key.
-
-</details>
+**کاربران PKM**
+برای اتصال یادداشت‌ها به مراجع مرکزی بدون ایجاد اطلاعات تکراری.
 
 ---
 
-## 🤝 Contributing
+# قابلیت‌ها
 
-Ideas, suggestions, or bug reports? I'd love to hear them:
-
-- 🐛 **Issues**: [GitHub Issues](https://github.com/singhaf9270/obsidian-highlight-reference/issues)
-- 🔧 **Pull Requests**: welcome!
-- ⭐ **Star** the repo if you find it useful.
-
----
-
-## 📄 License
-
-Released under the **MIT** license. See [LICENSE](LICENSE) for details.
-
----
-
-## 🌐 Follow us
-
-More Obsidian tutorials and content on our channels:
-
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://t.me/obsidiantut">
-        <img src="https://img.shields.io/badge/Telegram-%40obsidiantut-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://ble.ir/obsidiantut">
-        <img src="https://img.shields.io/badge/Bale-%40obsidiantut-22A06B?style=for-the-badge" alt="Bale">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://youtube.com/@obsidiantut">
-        <img src="https://img.shields.io/badge/YouTube-%40obsidiantut-FF0033?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>Telegram</b><br>@obsidiantut</td>
-    <td align="center"><b>Bale</b><br>@obsidiantut</td>
-    <td align="center"><b>YouTube</b><br>@obsidiantut</td>
-  </tr>
-</table>
+| قابلیت                          | توضیح                                    |
+| ------------------------------- | ---------------------------------------- |
+| 🖱️ نمایش معنی با هاور          | نمایش فوری توضیح                         |
+| ➕ افزودن سریع                   | اضافه کردن عنوان‌های جدید                |
+| ✏️ ویرایش سریع                  | ویرایش تعریف بدون ترک یادداشت            |
+| 📂 باز کردن مرجع                | رفتن مستقیم به خط مربوطه                 |
+| 📌 معنی درون‌خطی                | نمایش توضیح کنار هایلایت در Reading View |
+| 🗂️ چند مرجع                    | اتصال یک یادداشت به چند مرجع             |
+| 🌐 رابط دو زبانه                | فارسی و انگلیسی                          |
+| 📝 پشتیبانی از Markdown         | لینک، لیست، بولد و سایر قالب‌ها          |
+| 🔁 سازگاری با Spaced Repetition | استفاده از مرجع برای فلش‌کارت            |
+| ⚡ کش هوشمند                     | جلوگیری از پردازش غیرضروری               |
+| 📱 پشتیبانی از موبایل           | مناسب برای Obsidian موبایل               |
 
 ---
 
-<p align="center">
-  Made with ❤️ for the Obsidian community
-</p>
+# شروع سریع
 
-</details>
+## ۱. ساخت مرجع
 
----
+یک یادداشت معمولی بساز:
 
-<details open>
-<summary><b>🇮🇷 فارسی</b></summary>
-
-## 💡 هایلایت رفرنس چیه؟
-
-**هایلایت رفرنس** یه پلاگین Obsidian هست که هر `==هایلایت==` توی یادداشت‌هات رو به یه **مرجع زنده** تبدیل می‌کنه. موس رو روش ببر، توضیحش همون لحظه ظاهر می‌شه — بدون اینکه از یادداشتت بیرون بری یا فایل جدا باز کنی.
-
-بهش فکر کن مثل یه **واژه‌نامهٔ شخصی که داخل یادداشت‌هات زندگی می‌کنه**. چه داری یه مقالهٔ تخصصی می‌خونی، چه داری یه زبان جدید یاد می‌گیری، چه داری یادداشت‌های خودت رو مرور می‌کنی — هر هایلایت تبدیل می‌شه به یه در به سمت تعریفش.
-
-### ایده در یک خط
-
-> **`==کلمه==` رو بنویس → با هاور معنی‌ش رو ببین → همون‌جا اضافه یا ویرایشش کن.**
-
-### چرا متفاوته؟
-
-اکثر پلاگین‌های واژه‌نامه مجبورت می‌کنن یا:
-- یه پنل جدا باز کنی
-- از یه سینتکس خاص استفاده کنی که جریان کارت رو به هم می‌زنه
-- تعریف‌ها رو توی یه فرمت خشک ذخیره کنی
-
-هایلایت رفرنس با **همون سینتکس `==هایلایت==`** کار می‌کنه، مرجع رو از **فرانت‌متر** می‌خونه، و از **چند یادداشت مرجع برای هر فایل** پشتیبانی می‌کنه. تا وقتی نیازش نداشته باشی، سر راهت نیست.
-
----
-
-## 🎯 این پلاگین برای کیه؟
-
-- 📚 **زبان‌آموزها** — کلمات جدید رو هایلایت کن و ترجمه‌ش رو همون لحظه ببین
-- 🔬 **پژوهشگرها** — اصطلاحات تخصصی رو با تعریفشون حاشیه‌نویسی کن
-- ✍️ **نویسنده‌ها** — یه راهنمای سبک شخصی بساز که به هر یادداشت وصل باشه
-- 🧠 **دانشجوها** — یه مرجع مطالعه بساز که با یادداشت‌هات رشد کنه
-- 🗂️ **علاقه‌مندان PKM** — یادداشت‌ها رو به مراجع مرکزی وصل کن، بدون تکرار
-
----
-
-## ✨ قابلیت‌ها در یک نگاه
-
-| قابلیت | توضیح |
-|--------|-------|
-| 🖱️ **نمایش توضیح با هاور** | موس رو روی هایلایت ببر، تولتیپ ظاهر می‌شه |
-| ➕ **افزودن سریع** | اگه عنوان توی مرجع نبود، با یه کلیک اضافه‌ش کن |
-| ✏️ **ویرایش فوری** | از دکمهٔ ویرایش توی تولتیپ یا `Shift+کلیک` |
-| 📂 **باز کردن در مرجع** | با یه کلیک برو سر خط مربوطه توی یادداشت مرجع |
-| 📌 **توضیح درون‌خطی** | توضیح به‌صورت برچسب کوچک بعد از هایلایت (حالت خواندن) |
-| 🗂️ **چند مرجع** | یادداشتت رو با کلیدهای مختلف فرانت‌متر به چند مرجع وصل کن |
-| 🌐 **دو زبانه** | رابط کاربری فارسی و انگلیسی |
-| 📝 **پشتیبانی از Markdown** | توضیح‌ها می‌تونن لینک، لیست، بولد و هر چیز دیگه داشته باشن |
-| 🔁 **سازگار با Spaced Repetition** | از همون یادداشت مرجع برای فلش‌کارت استفاده کن |
-| ⚡ **کش هوشمند** | فایل‌های مرجع کش می‌شن و فقط با تغییر دوباره خونده می‌شن |
-
----
-
-## 🔁 هماهنگی با Spaced Repetition
-
-این پلاگین با **[Spaced Repetition](https://github.com/st3v3nmw/obsidian-spaced-repetition)** هماهنگه — یعنی می‌تونی از **همون یادداشت مرجع** برای مرور فلش‌کارت‌هات استفاده کنی.
-
-### چطور کار می‌کنه؟
-
-فرض کن توی یادداشت مرجعت (`مرجع من.md`) این خط رو داری:
-
-```markdown
-==فتوسنتز== :: فرایندی که گیاهان نور رو به انرژی تبدیل می‌کنن. #flashcard
+```text
+واژه‌نامه.md
 ```
 
-نکته اینجاست که **هشتگ `#flashcard`** رو ته خط گذاشتی. حالا:
-
-- **هایلایت رفرنس** با هاور، توضیح `فتوسنتز` رو توی یادداشت‌هات نشون می‌ده.
-- **Spaced Repetition** همون خط رو به‌عنوان **فلش‌کارت** برمی‌داره و توی جلسهٔ مرور ازت می‌پرسه.
-
-### مزیتش چیه؟
-
-- **یه بار بنویس، دو جا استفاده کن** — تعریف رو توی یادداشت مرجع می‌نویسی، هم برای مطالعهٔ روزانه (با هاور) استفاده می‌شه، هم برای مرور (با SR).
-- **بدون تکرار** — لازم نیست لغات رو دوباره توی یه فایل جدا برای SR بنویسی.
-- **مرور یکپارچه** — همهٔ لغات مرجعت توی یه جلسهٔ مرور میان، نه پراکنده.
-- **صفر تنظیمات** — فقط کافیه هشتگ SR رو ته خط مرجع بذاری.
-
-### انواع هشتگ‌های SR
-
-بسته به تنظیمات Spaced Repetition، می‌تونی از این هشتگ‌ها استفاده کنی:
-
-| هشتگ | کاربرد |
-|------|--------|
-| `#flashcard` | فلش‌کارت پایه (سؤال/جواب) |
-| `#sr` | سبک پیش‌فرض SR |
-| `#review` | برای مرور عمومی |
-
-> 💡 **نکته:** نوع هشتگ باید با تنظیمات Spaced Repetition تو هماهنگ باشه. اگه مطمئن نیستی، توی تنظیمات SR بخش **Flashcard tags** رو ببین.
-
-### یک مثال کامل
-
-یادداشت مرجع (`مرجع زیست.md`):
-
-```markdown
-==میتوکندری== :: نیروگاه سلول که ATP تولید می‌کنه. #flashcard
-==ریبوزوم== :: محل سنتز پروتئین. #flashcard
-==هسته== :: مرکز کنترل سلول که DNA رو نگه می‌داره. #flashcard
-```
-
-یادداشت مطالعه‌ات (`فصل ۳ - سلول.md`):
-
-```markdown
----
-reference: "مرجع زیست"
----
-
-سلول از اجزای مختلفی ساخته شده. ==میتوکندری== مسئول تولید انرژیه
-و ==ریبوزوم== ها پروتئین می‌سازن.
-```
-
-حالا:
-- **با هاور** روی `میتوکندری` توضیحش رو می‌بینی.
-- **با Spaced Repetition** روی همون یادداشت مرجع، هر سه لغت رو مرور می‌کنی.
-
----
-
-## 🚀 نصب
-
-### از بازار رسمی Obsidian
-
-1. Obsidian رو باز کن.
-2. برو به **تنظیمات → افزونه‌های انجمن**.
-3. **Browse** رو بزن و «Highlight Reference» رو جستجو کن.
-4. **Install** و بعد **Enable** رو بزن.
-
-### نصب دستی
-
-1. از [آخرین نسخه](https://github.com/singhaf9270/obsidian-highlight-reference/releases/latest) سه فایل `main.js`، `manifest.json` و `styles.css` رو دانلود کن.
-2. توی vault خودت پوشهٔ `.obsidian/plugins/highlight-reference/` رو بساز.
-3. سه فایل رو داخلش کپی کن.
-4. Obsidian رو یه بار ببند و باز کن.
-5. از **تنظیمات → افزونه‌های انجمن** فعالش کن.
-
-### نصب با BRAT (برای نسخه‌های بتا)
-
-1. پلاگین **BRAT** رو نصب کن.
-2. توی تنظیمات BRAT، **Add Beta plugin** رو بزن.
-3. آدرس زیر رو وارد کن:
-   ```
-   https://github.com/singhaf9270/obsidian-highlight-reference
-   ```
-4. **Add Plugin** رو بزن.
-
----
-
-## 📖 شروع سریع (۲ دقیقه‌ای)
-
-### قدم ۱ — یه مرجع بساز
-
-یه یادداشت جدید بساز (مثلاً `مرجع من.md`) و هر خط یه عنوان با این فرمت بنویس:
+و داخل آن بنویس:
 
 ```markdown
 عنوان :: توضیح
 ```
 
-مثال واقعی:
+مثلاً:
 
 ```markdown
-==هایلایت== :: متنی که با `==` احاطه شده و برجسته می‌شه.
-==فرانت‌متر== :: بخش بالای یادداشت که بین دو خط `---` قرار می‌گیره.
-  ادامهٔ توضیح با تورفتگی در خط بعدی نوشته می‌شه.
-  می‌تونی چند خط ادامه بدی.
+==فتوسنتز== :: فرایندی که گیاهان با استفاده از نور، انرژی شیمیایی تولید می‌کنند.
+
+==کلروپلاست== :: اندامکی که فرایند فتوسنتز در آن انجام می‌شود.
 ```
-
-یا از فرمت هایلایتی مستقیم استفاده کن:
-
-```markdown
-==عنوان== توضیح این عنوان
-```
-
-### قدم ۲ — یادداشتت رو به مرجع وصل کن
-
-توی **فرانت‌متر** یادداشتت (بالای فایل، بین دو خط `---`) بنویس:
-
-```yaml
----
-reference: "مرجع من"
----
-```
-
-### قدم ۳ — هایلایت کن و استفاده کن
-
-توی یادداشتت هر جا خواستی، کلمه رو با `==` بپوشون:
-
-```markdown
-این یه ==هایلایت== نمونه‌ست.
-```
-
-حالا موس رو ببر روش 👆
 
 ---
 
-## 🖱️ تعامل با هایلایت‌ها
+## ۲. اتصال مرجع
 
-| عمل | نتیجه |
-|-----|-------|
-| **هاور** | نمایش توضیح به‌صورت تولتیپ |
-| **کلیک ساده** | عنوان موجود: نمایش تولتیپ · عنوان غایب: پنجرهٔ افزودن |
-| **Ctrl + کلیک** | باز کردن خط مربوطه توی یادداشت مرجع |
-| **Shift + کلیک** | ویرایش توضیح موجود |
-| **Ctrl + Shift + کلیک** | باز کردن یا افزودن (بسته به وجود عنوان) |
-
-> 💡 **روی موبایل:** از تپ ساده برای نمایش، و از دکمه‌های داخل تولتیپ برای ویرایش یا باز کردن استفاده کن.
-
----
-
-## ⚡ دستورات پالت
-
-با `Ctrl/Cmd + P` بازشون کن:
-
-- **بارگذاری دوبارهٔ مرجع این یادداشت** — اگه مرجع رو دستی تغییر دادی.
-- **انتخاب یادداشت مرجع برای این یادداشت** — از یه پنجرهٔ جستجو انتخاب کن.
-- **افزودن/ویرایش عنوان هایلایت زیر نشانگر** — بدون نیاز به کلیک، از روی کیبورد.
-
----
-
-## ⚙️ تنظیمات
-
-| تنظیم | توضیح | پیش‌فرض |
-|-------|-------|---------|
-| **زبان** | فارسی یا انگلیسی | فارسی |
-| **کلید فرانت‌متر** | کلید پیش‌فرض برای مسیر مرجع | `reference` |
-| **نمایش توضیح با هاور** | فعال/غیرفعال کردن تولتیپ | فعال |
-| **تاخیر هاور** | مدت انتظار قبل از نمایش (۰ تا ۱۰۰۰ms) | ۲۰۰ms |
-| **پیام «پیدا نشد»** | نمایش تولتیپ با دکمهٔ افزودن برای عنوان‌های غایب | فعال |
-| **درج توضیح کنار هایلایت** | نمایش توضیح به‌صورت برچسب (فقط حالت خواندن) | غیرفعال |
-
----
-
-## 🧠 جزئیات فنی
-
-### فرمت مرجع
-
-هر خط از این الگو پیروی می‌کنه:
-
-```
-عنوان :: توضیح
-```
-
-**خطوط ادامه** باید تورفتگی داشته باشن (۲+ فاصله) یا با `>` شروع بشن:
-
-```markdown
-==فتوسنتز== :: فرایندی که گیاهان نور رو به انرژی تبدیل می‌کنن.
-  توی کلروپلاست‌ها اتفاق می‌افته.
-  اکسیژن به‌عنوان محصول جانبی تولید می‌شه.
-```
-
-**سینتکس هایلایت مستقیم** هم پشتیبانی می‌شه:
-
-```markdown
-==عنوان== توضیحش اینجا
-```
-
-### کلیدهای فرانت‌متر
-
-پلاگین مسیر یادداشت مرجع رو از **فرانت‌متر** یادداشتت می‌خونه. یعنی توی بالای فایل، بین دو خط `---`، می‌نویسی:
-
-```yaml
----
-reference: "مرجع من"
----
-```
-
-**ولی چرا چند تا کلید؟** چون می‌خوایم اگه یادداشت‌های قدیمی داری که با کلید دیگه‌ای نوشتی، پلاگین بازم کار کنه. مثلاً اگه یه جا نوشتی `dictionary: "..."` و یه جای دیگه `glossary: "..."`، هر دو شناسایی می‌شن.
-
-پلاگین این کلیدها رو به ترتیب چک می‌کنه:
-
-**کلید اول (تنظیمات):**
-- هر کلیدی که توی تنظیمات پلاگین تعیین کنی (پیش‌فرض: `reference`)
-
-**کلیدهای پیش‌فرض انگلیسی:**
-- `reference`
-- `dictionary`
-- `glossary`
-- `vocab`
-- `lexicon`
-- `source`
-
-**کلیدهای پیش‌فرض فارسی:**
-- `مرجع`
-- `منبع`
-- `واژه‌نامه`
-- `لغتنامه`
-- `واژگان`
-
-### مثال‌های کاربردی
-
-**ساده‌ترین حالت:**
+در ابتدای یادداشتت بنویس:
 
 ```yaml
 ---
@@ -794,7 +836,158 @@ reference: "واژه‌نامه"
 ---
 ```
 
-**با ویکی‌لینک:**
+یا:
+
+```yaml
+---
+reference: "[[واژه‌نامه]]"
+---
+```
+
+---
+
+## ۳. استفاده از هایلایت
+
+در متن بنویس:
+
+```markdown
+گیاهان از طریق ==فتوسنتز== انرژی تولید می‌کنند.
+```
+
+حالا موس را روی `فتوسنتز` ببر.
+
+تعریف آن نمایش داده می‌شود.
+
+---
+
+# مثال کامل
+
+### یادداشت مرجع
+
+```markdown
+==میتوکندری== :: اندامکی که نقش مهمی در تولید ATP و تأمین انرژی سلول دارد.
+
+==ریبوزوم== :: ساختاری که در فرایند ساخت پروتئین نقش دارد.
+
+==هسته== :: بخشی از سلول که بیشتر DNA سلول در آن قرار دارد.
+```
+
+### یادداشت مطالعه
+
+```markdown
+---
+reference: "مرجع زیست"
+---
+
+سلول دارای بخش‌های مختلفی است.
+==میتوکندری== در تأمین انرژی نقش دارد و ==ریبوزوم==
+در ساخت پروتئین فعالیت می‌کند.
+```
+
+با قرار دادن موس روی هر کلمه، توضیح آن نمایش داده می‌شود.
+
+---
+
+# تعامل با هایلایت‌ها
+
+| عمل                         | نتیجه                         |
+| --------------------------- | ----------------------------- |
+| **هاور**                    | نمایش توضیح                   |
+| **کلیک**                    | نمایش توضیح یا پیشنهاد افزودن |
+| **Ctrl/Cmd + کلیک**         | باز کردن خط مربوطه در مرجع    |
+| **Shift + کلیک**            | ویرایش تعریف                  |
+| **Ctrl/Cmd + Shift + کلیک** | باز کردن یا افزودن            |
+| **تپ در موبایل**            | نمایش توضیح                   |
+
+در موبایل، دکمه‌های داخل تولتیپ برای ویرایش و باز کردن مرجع در دسترس هستند.
+
+---
+
+# دستورات پالت
+
+با `Ctrl/Cmd + P` می‌توانی به این دستورات دسترسی داشته باشی:
+
+* **بارگذاری دوبارهٔ مرجع این یادداشت**
+* **انتخاب یادداشت مرجع برای این یادداشت**
+* **افزودن/ویرایش عنوان هایلایت زیر نشانگر**
+
+---
+
+# چند مرجع هم‌زمان
+
+می‌توانی یک یادداشت را به چند مرجع متصل کنی:
+
+```yaml
+---
+reference: "مرجع اصلی"
+glossary: "اصطلاحات تخصصی"
+---
+```
+
+پلاگین هر دو فایل را می‌خواند و ورودی‌ها را با هم ترکیب می‌کند.
+
+اگر یک عنوان در چند مرجع وجود داشته باشد، **اولین ورودی پیدا‌شده اولویت دارد.**
+
+مثلاً می‌توانی داشته باشی:
+
+```text
+واژه‌نامه عمومی
+        +
+اصطلاحات تخصصی
+        +
+واژه‌های شخصی
+```
+
+بدون اینکه تعریف‌ها را در یادداشت‌های مختلف کپی کنی.
+
+---
+
+# کلیدهای Frontmatter
+
+کلید پیش‌فرض:
+
+```yaml
+reference: "واژه‌نامه"
+```
+
+اما پلاگین کلیدهای دیگری را نیز می‌شناسد.
+
+### انگلیسی
+
+```text
+reference
+dictionary
+glossary
+vocab
+lexicon
+source
+```
+
+### فارسی
+
+```text
+مرجع
+منبع
+واژه‌نامه
+لغتنامه
+واژگان
+```
+
+کلید اصلی نیز از بخش تنظیمات قابل تغییر است.
+
+---
+
+# مسیر مرجع
+
+### نام ساده
+
+```yaml
+---
+reference: "واژه‌نامه"
+---
+```
+
+### ویکی‌لینک
 
 ```yaml
 ---
@@ -802,15 +995,7 @@ reference: "[[واژه‌نامه اصلی]]"
 ---
 ```
 
-**با کلید فارسی:**
-
-```yaml
----
-مرجع: "اصطلاحات پزشکی"
----
-```
-
-**با مسیر کامل:**
+### مسیر کامل
 
 ```yaml
 ---
@@ -818,176 +1003,406 @@ reference: "پوشه/زیرپوشه/واژه‌نامه.md"
 ---
 ```
 
-### اگه چند کلید داشته باشی چی می‌شه؟
-
-پلاگین **همه‌شون** رو می‌خونه و نتایج رو ادغام می‌کنه. یعنی اگه اینطوری بنویسی:
-
-```yaml
----
-reference: "مرجع اصلی"
-glossary: "مرجع تخصصی"
----
-```
-
-هر دو یادداشت به‌عنوان مرجع بارگذاری می‌شن. (اگه یه عنوان توی هر دو باشه، اولی اولویت داره.)
-
-> 💡 **نکته:** اگه می‌خوای یادداشتت به **چند مرجع** وصل بشه، از کلیدهای مختلف استفاده کن (مثلاً هم `reference` هم `glossary`). پلاگین همه رو می‌خونه و ادغام می‌کنه.
-
-### نرمال‌سازی واژه‌ها
-
-برای تطبیق قوی‌تر، واژه‌ها قبل از مقایسه نرمال می‌شن:
-
-| تبدیل | مثال |
-|-------|------|
-| `ي` عربی → `ی` فارسی | `كتاب` → `کتاب` |
-| `ك` عربی → `ک` فارسی | `كتاب` → `کتاب` |
-| `أ` `إ` `آ` → `ا` | `أحمد` → `احمد` |
-| `ة` → `ه` | `مدرسة` → `مدرسه` |
-| حذف نیم‌فاصله و کاراکترهای صفر-عرض | `می‌رود` → `میرود` |
-| جمع کردن فاصله‌های اضافی | `a   b` → `a b` |
-| کوچک کردن حروف | `Word` → `word` |
-
-یعنی `كتاب` (با کاف عربی) و `کتاب` (با کاف فارسی) به یه ورودی match می‌شن.
-
-### کش
-
-- فایل‌های مرجع با **زمان تغییر** کش می‌شن.
-- وقتی فایل مرجع تغییر کنه، کش خودکار باطل می‌شه.
-- بارگذاری دستی از پالت دستورات در دسترسه.
-
-### پشتهٔ فنی
-
-- **Obsidian API**: `Plugin`، `Modal`، `FuzzySuggestModal`، `MarkdownRenderer`
-- **ذخیره‌سازی**: فرانت‌متر از طریق `metadataCache`
-- **رندر**: `registerMarkdownPostProcessor` برای توضیح‌های درون‌خطی
-- **موبایل**: از API `visualViewport` برای جلوگیری از تداخل با کیبورد استفاده می‌کنه
-- **بدون وابستگی خارجی**
-
-### ساختار فایل‌ها
-
-```
-.obsidian/plugins/highlight-reference/
-├── main.js        # منطق پلاگین
-├── manifest.json  # متادیتای پلاگین
-└── styles.css     # استایل رابط کاربری
-```
-
 ---
 
-## 💡 نکات حرفه‌ای
+# توضیحات چندخطی
 
-### ترکیب با Spaced Repetition
+تعریف‌ها می‌توانند چندخطی باشند.
+
+برای ادامهٔ توضیح، خط‌های بعدی را با حداقل دو فاصله شروع کن:
 
 ```markdown
-# زیست‌شناسی
-
-==میتوکندری== نیروگاه سلوله.
+==فتوسنتز== :: فرایندی که گیاهان با استفاده از نور
+  انرژی شیمیایی تولید می‌کنند.
+  این فرایند عمدتاً در کلروپلاست انجام می‌شود.
 ```
 
-- هایلایت رفرنس با هاور تعریف `میتوکندری` رو نشون می‌ده.
-- Spaced Repetition همون `==میتوکندری==` رو به‌عنوان فلش‌کارت برمی‌داره.
-- یادداشت مرجعت تنها منبع حقیقت برای تعریفه.
+یا:
 
-### توضیح درون‌خطی برای یادداشت‌های مرور
-
-گزینهٔ **درج توضیح کنار هایلایت** رو فعال کن، و هر هایلایت توضیحش رو مستقیم توی حالت خواندن نشون می‌ده — عالی برای چاپ یا خروجی PDF.
-
----
-
-## 🔧 عیب‌یابی
-
-<details>
-<summary><b>توضیح‌ها نمایش داده نمی‌شن</b></summary>
-
-1. مطمئن شو توی فرانت‌متر یادداشت، کلید `reference` (یا یکی از کلیدهای پذیرفته‌شده) وجود داره.
-2. مطمئن شو یادداشت مرجع واقعاً توی vault هست و مسیرش درسته.
-3. از پالت دستورات **بارگذاری دوبارهٔ مرجع این یادداشت** رو اجرا کن.
-4. توی نوار وضعیت پایین صفحه، ببین تعداد موارد بارگذاری‌شده چنده.
-
-</details>
-
-<details>
-<summary><b>تولتیپ نمایش داده نمی‌شه</b></summary>
-
-1. تنظیم **نمایش توضیح با هاور** رو چک کن.
-2. اگه **تاخیر هاور** زیاد تنظیم شده، کمش کن.
-3. تولتیپ‌ها توی حالت خواندن بهتر کار می‌کنن؛ بعضی حالت‌های ویرایش ممکنه متفاوت رفتار کنن.
-
-</details>
-
-<details>
-<summary><b>توضیح‌ها به‌روزرسانی نمی‌شن</b></summary>
-
-1. فایل مرجع رو ذخیره کن؛ پلاگین خودکار تغییرات رو detect می‌کنه.
-2. اگه نشد، از دستور **بارگذاری دوباره** استفاده کن.
-
-</details>
-
-<details>
-<summary><b>روی موبایل مودال زیر کیبورد می‌ره</b></summary>
-
-توی نسخهٔ ۱.۰.۲ این مشکل حل شده. مطمئن شو آخرین نسخه رو داری.
-
-</details>
-
-<details>
-<summary><b>واژه‌ها اشتباه match می‌شن</b></summary>
-
-واژه‌ها نرمال می‌شن (بخش فنی رو ببین). اگه تطبیق دقیق می‌خوای، از کلید خاص‌تری استفاده کن.
-
-</details>
+```markdown
+==فتوسنتز== :: فرایندی که گیاهان با استفاده از نور انرژی تولید می‌کنند.
+> این فرایند در کلروپلاست انجام می‌شود.
+> اکسیژن نیز به‌عنوان محصول جانبی آزاد می‌شود.
+```
 
 ---
 
-## 🤝 مشارکت
+# پشتیبانی از Markdown
 
-ایده، پیشنهاد، یا باگ داری؟ خوشحال می‌شم بشنوم:
+تعریف‌ها می‌توانند Markdown داشته باشند:
 
-- 🐛 **Issue**: [GitHub Issues](https://github.com/singhaf9270/obsidian-highlight-reference/issues)
-- 🔧 **Pull Request**: خوش‌آمدی!
-- ⭐ اگه برات مفید بود، به مخزن **ستاره** بده.
+```markdown
+==Obsidian== :: یک برنامهٔ مدیریت دانش با پشتیبانی از
+**Markdown**، [[Wikilink]] و فهرست‌ها.
+```
+
+بنابراین می‌توانی داخل تعریف‌ها از موارد زیر استفاده کنی:
+
+* **متن ضخیم**
+* *متن ایتالیک*
+* لینک
+* ویکی‌لینک
+* فهرست
+* قالب‌بندی Markdown
 
 ---
 
-## 📄 مجوز
+# Spaced Repetition
 
-این پروژه تحت مجوز **MIT** منتشر شده. جزئیات توی فایل [LICENSE](LICENSE).
+Highlight Reference می‌تواند در کنار پلاگین **Spaced Repetition** استفاده شود.
+
+[Spaced Repetition در GitHub](https://github.com/st3v3nmw/obsidian-spaced-repetition?utm_source=chatgpt.com)
+
+ایده ساده است:
+
+```text
+              یادداشت مرجع
+                   │
+          ┌────────┴────────┐
+          ↓                 ↓
+ Highlight Reference   Spaced Repetition
+          ↓                 ↓
+      نمایش معنی          فلش‌کارت
+```
+
+مثلاً:
+
+```markdown
+==میتوکندری== :: اندامکی که در تولید ATP نقش دارد. #flashcard
+
+==ریبوزوم== :: ساختار مسئول ساخت پروتئین است. #flashcard
+
+==هسته== :: محل قرارگیری بیشتر DNA سلول است. #flashcard
+```
+
+در یادداشت مطالعه:
+
+```markdown
+---
+reference: "مرجع زیست"
+---
+
+==میتوکندری== در تأمین انرژی سلول نقش دارد.
+```
+
+حالا:
+
+* Highlight Reference هنگام هاور، تعریف را نشان می‌دهد.
+* Spaced Repetition می‌تواند همان ورودی‌ها را برای مرور استفاده کند.
+
+### مزیت اصلی
+
+**یک بار بنویس، چند بار استفاده کن.**
+
+همان تعریف می‌تواند برای:
+
+* مطالعه
+* یادداشت‌برداری
+* مرجع سریع
+* فلش‌کارت
+* مرور فاصله‌دار
+
+استفاده شود.
+
+> نوع هشتگ فلش‌کارت به تنظیمات Spaced Repetition بستگی دارد. بخش **Flashcard tags** را در تنظیمات آن بررسی کن.
 
 ---
 
-## 🌐 ما رو دنبال کن
+# معنی درون‌خطی
 
-آموزش‌ها و مطالب بیشتر دربارهٔ Obsidian:
+با فعال کردن گزینهٔ **درج توضیح کنار هایلایت**، معنی در Reading View کنار کلمه نمایش داده می‌شود.
 
-<table>
-  <tr>
-    <td align="center">
-      <a href="https://t.me/obsidiantut">
-        <img src="https://img.shields.io/badge/Telegram-%40obsidiantut-229ED9?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://ble.ir/obsidiantut">
-        <img src="https://img.shields.io/badge/Bale-%40obsidiantut-22A06B?style=for-the-badge" alt="Bale">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://youtube.com/@obsidiantut">
-        <img src="https://img.shields.io/badge/YouTube-%40obsidiantut-FF0033?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center"><b>تلگرام</b><br>@obsidiantut</td>
-    <td align="center"><b>بله</b><br>@obsidiantut</td>
-    <td align="center"><b>یوتیوب</b><br>@obsidiantut</td>
-  </tr>
-</table>
+این قابلیت برای موارد زیر مفید است:
+
+* یادداشت‌های آموزشی
+* مرور درسی
+* چاپ
+* خروجی PDF
+* متون آموزشی
+
+---
+
+# نرمال‌سازی واژه‌ها
+
+برای اینکه تطبیق فارسی و عربی بهتر انجام شود، واژه‌ها قبل از مقایسه نرمال می‌شوند.
+
+| تبدیل                     | مثال               |
+| ------------------------- | ------------------ |
+| `ي` → `ی`                 | `كتاب` → `کتاب`    |
+| `ك` → `ک`                 | `كتاب` → `کتاب`    |
+| `أ`، `إ`، `آ` → `ا`       | `أحمد` → `احمد`    |
+| `ة` → `ه`                 | `مدرسة` → `مدرسه`  |
+| حذف کاراکترهای صفرعرض     | `می‌رود` → `میرود` |
+| حذف فاصله‌های اضافی       | `a   b` → `a b`    |
+| حروف انگلیسی کوچک می‌شوند | `Word` → `word`    |
+
+بنابراین:
+
+```text
+كتاب
+کتاب
+```
+
+به‌عنوان یک عنوان در نظر گرفته می‌شوند.
+
+---
+
+# کش هوشمند
+
+فایل‌های مرجع برای جلوگیری از پردازش اضافی کش می‌شوند.
+
+وقتی فایل مرجع تغییر کند:
+
+1. تغییر شناسایی می‌شود.
+2. کش قبلی کنار گذاشته می‌شود.
+3. فایل دوباره خوانده می‌شود.
+
+همچنین می‌توانی از Command Palette به‌صورت دستی مرجع را Reload کنی.
+
+---
+
+# تنظیمات
+
+| تنظیم                      | توضیح                          | پیش‌فرض     |
+| -------------------------- | ------------------------------ | ----------- |
+| **زبان**                   | زبان رابط پلاگین               | فارسی       |
+| **کلید Frontmatter**       | کلید اصلی مرجع                 | `reference` |
+| **نمایش معنی با هاور**     | فعال/غیرفعال کردن تولتیپ       | فعال        |
+| **تاخیر هاور**             | زمان انتظار برای نمایش         | ۲۰۰ms       |
+| **پیام پیدا نشد**          | نمایش گزینهٔ افزودن عنوان جدید | فعال        |
+| **درج توضیح کنار هایلایت** | نمایش معنی در Reading View     | غیرفعال     |
+
+تاخیر هاور بین:
+
+```text
+0 تا 1000 میلی‌ثانیه
+```
+
+قابل تنظیم است.
+
+---
+
+# پشتیبانی از موبایل
+
+Highlight Reference برای Obsidian موبایل نیز طراحی شده است.
+
+برای مدیریت بهتر موقعیت پنجره‌ها هنگام باز شدن کیبورد از:
+
+```text
+visualViewport
+```
+
+استفاده می‌شود.
+
+مشکل قرار گرفتن پنجره زیر کیبورد در **نسخهٔ 1.0.2** برطرف شده است.
+
+---
+
+# عیب‌یابی
+
+<details> <summary><strong>معنی‌ها نمایش داده نمی‌شوند</strong></summary>
+
+1. وجود `reference` یا یکی از کلیدهای مجاز را در Frontmatter بررسی کن.
+2. مطمئن شو فایل مرجع وجود دارد.
+3. مسیر مرجع را بررسی کن.
+4. دستور **بارگذاری دوبارهٔ مرجع این یادداشت** را اجرا کن.
+5. تعداد ورودی‌های بارگذاری‌شده را در Status Bar بررسی کن.
+
+</details>
+
+<details> <summary><strong>تولتیپ نمایش داده نمی‌شود</strong></summary>
+
+1. گزینهٔ **نمایش معنی با هاور** را بررسی کن.
+2. مقدار **تاخیر هاور** را کاهش بده.
+3. در Reading View امتحان کن.
+4. مطمئن شو عنوان موردنظر در مرجع وجود دارد.
+
+</details>
+
+<details> <summary><strong>تغییرات مرجع نمایش داده نمی‌شوند</strong></summary>
+
+ابتدا فایل مرجع را ذخیره کن.
+
+پلاگین تغییرات را به‌صورت خودکار تشخیص می‌دهد.
+
+اگر تغییر نمایش داده نشد:
+
+```text
+Command Palette
+→ Reload this note's reference
+```
+
+را اجرا کن.
+
+</details>
+
+<details> <summary><strong>کلمات به‌صورت غیرمنتظره Match می‌شوند</strong></summary>
+
+پلاگین واژه‌ها را قبل از مقایسه نرمال می‌کند.
+
+برای مثال:
+
+```text
+كتاب
+کتاب
+```
+
+معادل در نظر گرفته می‌شوند.
+
+اگر تطبیق دقیق‌تری لازم داری، از عنوان‌های مشخص‌تر استفاده کن.
+
+</details>
+
+<details> <summary><strong>پنجره در موبایل زیر کیبورد قرار می‌گیرد</strong></summary>
+
+از نسخهٔ **1.0.2 یا جدیدتر** استفاده کن.
+
+مدیریت موقعیت پنجره‌ها در این نسخه بهبود یافته است.
+
+</details>
+
+---
+
+# جزئیات فنی
+
+Highlight Reference از APIهای زیر Obsidian استفاده می‌کند:
+
+```text
+Plugin
+Modal
+FuzzySuggestModal
+MarkdownRenderer
+metadataCache
+registerMarkdownPostProcessor
+```
+
+### ذخیره‌سازی
+
+مسیر مراجع از Frontmatter یادداشت و از طریق `metadataCache` خوانده می‌شود.
+
+### رندر
+
+معنی‌های درون‌خطی با:
+
+```text
+registerMarkdownPostProcessor
+```
+
+پردازش می‌شوند.
+
+### موبایل
+
+برای مدیریت موقعیت رابط کاربری:
+
+```text
+visualViewport
+```
+
+استفاده می‌شود.
+
+### وابستگی خارجی
+
+این پلاگین:
+
+```text
+هیچ وابستگی خارجی ندارد.
+```
+
+---
+
+# ساختار فایل‌ها
+
+```text
+.obsidian/plugins/highlight-reference/
+├── main.js
+├── manifest.json
+└── styles.css
+```
+
+---
+
+# نصب
+
+## نصب از Community Plugins
+
+1. Obsidian را باز کن.
+2. به **Settings → Community plugins** برو.
+3. روی **Browse** کلیک کن.
+4. عبارت **Highlight Reference** را جستجو کن.
+5. روی **Install** کلیک کن.
+6. پلاگین را **Enable** کن.
+
+## نصب دستی
+
+[آخرین نسخه Highlight Reference](https://github.com/singhaf9270/obsidian-highlight-reference/releases?utm_source=chatgpt.com)
+
+این سه فایل را دانلود کن:
+
+```text
+main.js
+manifest.json
+styles.css
+```
+
+و داخل این مسیر قرار بده:
+
+```text
+.obsidian/plugins/highlight-reference/
+```
+
+سپس Obsidian را دوباره اجرا و پلاگین را فعال کن.
+
+## نصب با BRAT
+
+برای نسخه‌های آزمایشی:
+
+1. BRAT را نصب کن.
+2. وارد تنظیمات BRAT شو.
+3. **Add Beta plugin** را انتخاب کن.
+4. این آدرس را وارد کن:
+
+```text
+https://github.com/singhaf9270/obsidian-highlight-reference
+```
+
+5. روی **Add Plugin** کلیک کن.
+
+---
+
+# مشارکت
+
+اگر ایده، پیشنهاد یا باگی داری، خوشحال می‌شوم آن را در GitHub مطرح کنی.
+
+[گزارش Issue](https://github.com/singhaf9270/obsidian-highlight-reference/issues?utm_source=chatgpt.com)
+
+[مشاهده کد منبع در GitHub](https://github.com/singhaf9270/obsidian-highlight-reference?utm_source=chatgpt.com)
+
+اگر پلاگین برایت مفید بود، می‌توانی به مخزن ⭐ بدهی.
+
+---
+
+# مجوز
+
+این پروژه تحت مجوز **MIT License** منتشر شده است.
+
+برای جزئیات، فایل `LICENSE` را ببین.
+
+---
+
+# آموزش‌های Obsidian
+
+برای آموزش‌ها و مطالب فارسی Obsidian:
+
+* [تلگرام — @obsidiantut](https://t.me/obsidiantut?utm_source=chatgpt.com)
+* [بله — @obsidiantut](https://ble.ir/obsidiantut?utm_source=chatgpt.com)
+* [یوتیوب — @obsidiantut](https://youtube.com/@obsidiantut?utm_source=chatgpt.com)
 
 ---
 
 <p align="center">
-  ساخته شده با ❤️ برای جامعهٔ Obsidian فارسی
+
+**ساخته شده با ❤️ برای جامعهٔ Obsidian**
+
 </p>
 
 </details>
