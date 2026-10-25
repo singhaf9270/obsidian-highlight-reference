@@ -691,6 +691,15 @@ class HighlightReferenceSettingTab extends PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
+    {
+      const support = containerEl.createEl("p");
+      support.createEl("a", {
+        text: this.plugin.settings.language === "fa" ? "♡ حمایت مالی از توسعه‌دهنده" : "♡ Support development",
+        href: "https://reymit.ir/singhaf9270",
+        attr: { target: "_blank", rel: "noopener noreferrer" }
+      });
+    }
+
     const L = this.plugin.t();
     const isFa = this.plugin.settings.language === "fa";
     containerEl.setAttribute("dir", isFa ? "rtl" : "ltr");
